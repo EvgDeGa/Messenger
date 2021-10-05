@@ -5,60 +5,72 @@ import { Colors } from '../../constants/Colors';
 
 const DATA = [
     {
-      id: '1-c1b1-46c2-aed5-3ad53abb28ba',
+      id: '1',
       title: 'First Item',
-    //   source: require('./src/assets/img/ProfileImage.png')
+      source: require('../../assets/img/ProfilePhotoScrol/1.png')
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571ie29d72',
-      title: 'Third Item',
-    },
-    {
-        id: 'bd7acbwea-c1b1-46c2-aedi5-3ad53abb28ba',
-        title: 'Fierst Item',
-      },
-      {
-        id: '3ac68afec-c605-48d3-a4f8-fbd91aai97f63',
-        title: 'Seecond Item',
-      },
-      {
-        id: '5869ii4a0wf-3da1-471f-bd96-145571e29d72',
-        title: 'Thierd Item',
-      },
-      {
-        id: 'bd7acbea-c1b1-46c2-aedi5-3ad53abb28ba',
+        id: '2',
         title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/2.png')
       },
       {
-        id: '3ac68iafc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        id: '3',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/3.png')
       },
       {
-        id: '58694a0f-3da1-471f-ibd96-145571e29d72',
-        title: 'Third Item',
+        id: '4',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/4.png')
       },
       {
-          id: 'bd7acbwea-c1b1-i46c2-aed5-3ad53abb28ba',
-          title: 'Fierst Item',
-        },
-        {
-          id: '3ac68afec-c60i5-48d3-a4f8-fbd91aa97f63',
-          title: 'Seecond Item',
-        },
-        {
-          id: '58694a0wf-i3da1-471f-bd96-145571e29d72',
-          title: 'Thierd Item',
-        },
+        id: '51',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/5.png')
+      },
+      {
+        id: '155',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/11.png')
+      },
+      {
+        id: '16',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/7.png')
+      },
+      {
+        id: '71',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/8.png')
+      },
+      {
+        id: '18',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/9.png')
+      },{
+        id: '123',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/10.png')
+      },
+      {
+        id: '1124',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/11.png')
+      },
+      {
+        id: '1231',
+        title: 'First Item',
+        source: require('../../assets/img/ProfilePhotoScrol/12.png')
+      },
+         
+                   
   ];
   
-  const Item = ({ item, onPress, border }) => (
-    <TouchableOpacity onPress={onPress} style={border}>
-      {/* <Image style={styles.title} source={item}/> */}
-      <Text style={styles.item}>{item.title}</Text>
+  const Item = ({ item, onPress}) => (
+    <TouchableOpacity onPress={onPress} style={{ }}>
+      <Image style={styles.title}  source={item.source}/>
+      {/* <Text style={styles.item}>{item.title}</Text> */}
     </TouchableOpacity>
   );
 
@@ -66,15 +78,10 @@ export const ProfilePhotoScroll = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
-    const color = item.id === selectedId ? 'white' : 'black';
-
     return (
       <Item
         item={item}
         onPress={() => setSelectedId(item.id)}
-        border={{borderWidth: 1, borderColor: "#000"}}
-        textColor={{ color }}
       />
     );
   };
@@ -96,17 +103,17 @@ export const ProfilePhotoScroll = () => {
 
 const styles = StyleSheet.create({
     container: {
+        paddingHorizontal: 16,
       height: 300
     //   marginTop: StatusBar.currentHeight || 0,
     },
-    item: {
-        borderWidth: 1,
-        borderColor: "#FFF",
-      width: Dimensions.get('window').width/5,
-      color: Colors.purple_08,
-      padding: 20,
-    //   marginVertical: 8,
-    //   marginHorizontal: 16,
+    title: {
+        marginTop: 3,
+        width: (Dimensions.get('window').width - 38)/3 ,
+        height: (Dimensions.get('window').width - 38)/3 ,
+        flex: 1,
+        aspectRatio: 1, 
+        resizeMode: 'contain',
     },
     
   });

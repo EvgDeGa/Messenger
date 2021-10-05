@@ -9,7 +9,7 @@ import { Colors } from './src/constants/Colors';
 
 export default function App(){
   return (
-    <SafeAreaView style={{padding: 50, backgroundColor: Colors.black}}>
+    <SafeAreaView style={{ backgroundColor: Colors.black}}>
      <View style={{flexDirection: "row", justifyContent: "space-between"}}>
       <TextWithNumber text={"Followers"} number={"2347"}/> 
       <TextWithNumber text={"Followers"} number={"242133"}/>
