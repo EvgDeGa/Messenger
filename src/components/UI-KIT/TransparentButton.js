@@ -4,10 +4,10 @@ import { Fonts } from '../../constants/Fonts';
 import { Colors } from '../../constants/Colors';
 
 
-export const TransparentButton = ({text, buttoWidth}) => {
+export const TransparentButton = ({text, buttonWidth}) => {
    
   return (
-    <View style={{width: buttoWidth}}>
+    <View style={{width: buttonWidth}}>
         <Text style={styles.text}>{text}</Text>
     </View>
   );
