@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View } from 'react-native';
-import {Colors} from '../constants/Colors'
-import Icon from '../../src/components/Icon/icon'
+import {Colors} from '../../constants/Colors'
+import {Fonts} from '../../constants/Fonts'
+import Icon from '../Icon/icon'
 
-export const IconWithDescription = ({icon , text}) => {
+export const IconWithDescription = ({iconColor, icon , text}) => {
   return (
     <View style={styles.IWD}>
-        <View style={styles.icon}><Icon name={icon} size={30} color={Colors.white}/></View>
+        <View style={styles.icon}><Icon name={icon} size={24} color={iconColor}/></View>
         <View style={styles.textContainer}><Text style={styles.text}>{text}</Text></View>
     </View>
   );
@@ -15,17 +16,20 @@ export const IconWithDescription = ({icon , text}) => {
 const styles = StyleSheet.create({
     IWD:{
       flexDirection: "row",
+      flexWrap: 'wrap',
     },
     icon:{
-      width: 42
     },
     text:{
-      textAlign: "center",
-      color: Colors.purple_02,
+      fontFamily: Fonts.HK_Grotesk_Medium,
+      paddingLeft: 9,
       fontSize: 14,
       lineHeight: 16,
+      color: Colors.purple_02,
+      
     },
     textContainer:{
+      flex: 1,
       justifyContent: "center"
     } 
   });

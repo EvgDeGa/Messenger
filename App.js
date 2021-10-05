@@ -1,13 +1,14 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
-import {IconWithDescription} from './src/components/IconWithDescription'
+import {IconWithDescription} from './src/components/UI-KIT/IconWithDescription'
+import { ProfileImage } from './src/components/UI-KIT/ProfileImage';
 import { Colors } from './src/constants/Colors';
-import Icon from './src/components/Icon/icon'
 
 export default function App(){
   return (
-    <SafeAreaView >
-      <IconWithDescription icon={'chat'} text={'They never ask people to do things they wouldn’t do themselves.'}/>
+    <SafeAreaView style={{padding: 50}}>
+      <ProfileImage image={require('./src/assets/img/ProfileImage.png')} size={95}/>
+      <IconWithDescription iconColor={Colors.white} icon={'Chat'} text={'They never ask people to do things they wouldn’t do themselves.'}/>
     </SafeAreaView>
   );
 };
