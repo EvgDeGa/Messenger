@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View } from 'react-native';
 import {Colors} from '../constants/Colors'
+import Icon from '../../src/components/Icon/icon'
 
 export const IconWithDescription = ({icon , text}) => {
   return (
     <View style={styles.IWD}>
-        <View style={styles.icon}></View>
+        <View style={styles.icon}><Icon name={icon} size={30} color={Colors.white}/></View>
         <View style={styles.textContainer}><Text style={styles.text}>{text}</Text></View>
     </View>
   );

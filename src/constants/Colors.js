@@ -1,5 +1,7 @@
 export const Colors = {
     yellow: '#FCFF56',
+    white: "#FFF",
+    black: "#000",
     purple_1: '#201736',
     purple_08: '#2B2146',
     purple_06: '#3B2D5F',
