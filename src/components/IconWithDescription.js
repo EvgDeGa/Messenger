@@ -5,7 +5,7 @@ import {Colors} from '../constants/Colors'
 export const IconWithDescription = ({icon , text}) => {
   return (
     <View style={styles.IWD}>
-        <View style={styles.icon}><Image source={icon}/></View>
+        <View style={styles.icon}></View>
         <View style={styles.textContainer}><Text style={styles.text}>{text}</Text></View>
     </View>
   );
