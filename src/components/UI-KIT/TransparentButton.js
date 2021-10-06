@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
 import { Fonts } from '../../constants/Fonts';
 import { Colors } from '../../constants/Colors';
 
 
-export const TransparentButton = ({text, buttonWidth}) => {
+export const TransparentButton = ({text, onClick}) => {
    
   return (
-    <View style={{width: buttonWidth}}>
+    
+    <TouchableOpacity onPress={onClick}>
         <Text style={styles.text}>{text}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

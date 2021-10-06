@@ -7,7 +7,7 @@ import Icon from '../Icon/icon'
 export const IconWithDescription = ({iconColor, icon , text}) => {
   return (
     <View style={styles.IWD}>
-        <View style={styles.icon}><Icon name={icon} size={24} color={iconColor}/></View>
+        <View style={styles.icon}><Icon name={icon} size={20} color={iconColor}/></View>
         <View style={styles.textContainer}><Text style={styles.text}>{text}</Text></View>
     </View>
   );
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     IWD:{
       flexDirection: "row",
       flexWrap: 'wrap',
+      paddingTop: 20
     },
     icon:{
     },
