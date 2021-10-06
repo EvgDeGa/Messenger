@@ -17,17 +17,15 @@ const styles = StyleSheet.create({
     IWD:{
       flexDirection: "row",
       flexWrap: 'wrap',
-      paddingTop: 20
     },
     icon:{
+      justifyContent: "center"
     },
     text:{
       fontFamily: Fonts.HK_Grotesk_Medium,
       paddingLeft: 9,
       fontSize: 14,
-      lineHeight: 16,
       color: Colors.purple_02,
-      
     },
     textContainer:{
       flex: 1,

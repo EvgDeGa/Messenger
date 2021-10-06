@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, Image, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { ProfilePhotoScroll } from '../components/UI-KIT/ProfilePhotoScroll';
 import { TextWithNumber } from '../components/UI-KIT/TextWithNumber';
 import { TransparentButton } from '../components/UI-KIT/TransparentButton';
 import { ProfileImage } from '../components/UI-KIT/ProfileImage';
-import { IconWithDescription } from '../components/UI-KIT/IconWithDescription';
-
 
 import { Colors } from '../constants/Colors';
 import Icon from '../components/Icon/icon';
 import { Fonts } from '../constants/Fonts';
 import { MoreDetails } from './MoreDetails';
+import { MoreAction } from './MoreAction';
+
 
 const DATA ={
   selfInf: {
@@ -99,6 +99,7 @@ const DATA ={
 
 export const Profile = ({}) => {
   const [moreDetails, setMoreDetails] = useState(false)
+  const [moreAction, setMoreAction] = useState(false)
   
   return (
     <SafeAreaView style={styles.profileContainer}>
@@ -112,7 +113,7 @@ export const Profile = ({}) => {
               <Text style={styles.countryCity}>{DATA.selfInf.country}, {DATA.selfInf.city}</Text>
               <Text style={styles.workpalce}>Место работы: {DATA.selfInf.workpalce}</Text>
             </View>
-            <View style={styles.icon}><Icon name={"HorizontalDots"} size={20} color={Colors.white}/></View>
+            <TouchableOpacity onPress={() => setMoreAction(true)} style={styles.icon}><Icon name={"HorizontalDots"} size={20} color={Colors.white}/></TouchableOpacity>
           </View>
           <View style={styles.profileInformation_secondLine}>
             <TextWithNumber text={"Followers"} number={DATA.followers}/> 
@@ -142,7 +143,9 @@ export const Profile = ({}) => {
           <ProfilePhotoScroll data={DATA.gallary} />
         </View>
         <View style={{width: "100%", height: 45, backgroundColor: Colors.purple_1 }}/>
+        <MoreAction  visible={moreAction} onCancel={ () => setMoreAction(false)}/>
         <MoreDetails selfInf={DATA.selfInf} social={DATA.social} visible={moreDetails} onCancel={ () => setMoreDetails(false)}/>
+        
     </SafeAreaView>
   );
 }

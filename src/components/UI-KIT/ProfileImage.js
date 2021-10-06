@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import {Image, View } from 'react-native';
 
 
 export const ProfileImage = ({image, size}) => {

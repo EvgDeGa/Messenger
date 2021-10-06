@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Fonts } from '../../constants/Fonts';
 import { Colors } from '../../constants/Colors';
-
 
 export const TextWithNumber = ({text, number}) => {
     
@@ -34,10 +33,6 @@ export const TextWithNumber = ({text, number}) => {
 };
 
 const styles = StyleSheet.create({
-    container:{
-      
-    },
-    
     number:{
       fontFamily: Fonts.HK_Grotesk_Bold,
       fontSize: 14,

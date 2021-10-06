@@ -1,11 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Fonts } from '../../constants/Fonts';
 import { Colors } from '../../constants/Colors';
 
-
 export const TransparentButton = ({text, onClick}) => {
-   
   return (
     
     <TouchableOpacity onPress={onClick}>
