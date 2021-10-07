@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { ProfilePhotoScroll } from '../components/UI-KIT/ProfilePhotoScroll';
 import { TextWithNumber } from '../components/UI-KIT/TextWithNumber';
 import { TransparentButton } from '../components/UI-KIT/TransparentButton';
