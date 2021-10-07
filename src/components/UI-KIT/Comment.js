@@ -4,6 +4,7 @@ import { Fonts } from '../../constants/Fonts';
 import { Colors } from '../../constants/Colors';
 import { ProfileImage } from './ProfileImage';
 import Icon from '../Icon/icon';
+import { CommentContent } from './CommentContent';
 
 
 
@@ -25,7 +26,7 @@ export const Comment = ({item}) => {
             <View style={styles.image}><ProfileImage image={require('../../assets/img/ProfileImage.png')} size={imageSize}/></View>
             <View style={styles.commentBody}>
                 <Text style={styles.nameText}>{item.commetHolder}</Text>
-                <Text style={styles.commentText}>{item.body}</Text>
+                <CommentContent text={item.body} image={item.image} />
                 <View style={styles.buttonDate}>
                     <Text style={styles.dateText}>{item.date}</Text>
                     <TouchableOpacity onPress={() => setSelectedId(item.id)}><Text style={styles.replyButton}>Ответить</Text></TouchableOpacity>
@@ -48,7 +49,7 @@ export const Comment = ({item}) => {
 
 const styles = StyleSheet.create({
     commentContainer:{      
-      paddingTop: 6
+      paddingTop: 10
     },
     commentItem:{
       flexDirection: "row"      
@@ -70,14 +71,6 @@ const styles = StyleSheet.create({
       lineHeight: 16,
       color: Colors.white,
       
-    },
-    commentText:{
-      fontFamily: Fonts.HK_Grotesk_Medium,
-      fontSize: 12,
-      lineHeight: 16,
-      color: Colors.purple_02,
-      paddingTop: 2,
-      paddingBottom: 6
     },
     buttonDate: {
       flexDirection: "row"
