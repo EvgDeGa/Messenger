@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Image, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {Colors} from '../../../constants/Colors';
-// import {ProfileImage} from '../MesProfileImage/index';
 import styles from './MesCommentStyle';
 import CommentContent from '../MesCommentContent';
 import Icon from '../../Icon';
