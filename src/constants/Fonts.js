@@ -1,6 +1,6 @@
 export const Fonts = {
-    HK_Grotesk_Bold: "HKGrotesk-Bold",
-    HK_Grotesk_SemiBold: "HKGrotesk-SemiBold",
-    HK_Grotesk_Regular: "HKGrotesk-Regular",
-    HK_Grotesk_Medium: "HKGrotesk-Medium"
-}
+  HK_GROTESK_BOLD: 'HKGrotesk-Bold',
+  HK_GROTESK_SEMIBOLD: 'HKGrotesk-SemiBold',
+  HK_GROTESK_REGULAR: 'HKGrotesk-Regular',
+  HK_GROTESK_MEDIUM: 'HKGrotesk-Medium',
+};
