@@ -1,3 +1,11 @@
-import {Profile} from './Profile';
+import Profile from './Profile';
+import {connect} from 'react-redux';
 
-export default Profile;
+const mapStateToProps = state => ({
+  data: state,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+// export default Profile;
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

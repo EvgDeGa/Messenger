@@ -11,8 +11,8 @@ import Menu from '../../components/HomeModal/Menu';
 
 import styles from './HomeStyle';
 
-export const Home = ({}) => {
-  const [menu, setMenu] = useState(true);
+export const Home = props => {
+  const [menu, setMenu] = useState(false);
 
   return (
     <SafeAreaView>
@@ -20,7 +20,11 @@ export const Home = ({}) => {
         style={{width: '100%'}}
         activeOpacity={0}
         onPress={() => setMenu(true)}>
-        <Menu visible={menu} onCancel={() => setMenu(false)} />
+        <Menu
+          visible={menu}
+          onCancel={() => setMenu(false)}
+          navigation={props.navigation}
+        />
         <Text>Home</Text>
       </TouchableOpacity>
     </SafeAreaView>

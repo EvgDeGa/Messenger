@@ -12,7 +12,7 @@ import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 import {Colors} from '../../../constants/Colors';
 import {styles} from './MenuStyle';
 
-export const Menu = ({visible, onCancel}) => {
+export const Menu = ({visible, onCancel, navigation}) => {
   return (
     <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.centralView} onPress={onCancel}>
@@ -28,42 +28,54 @@ export const Menu = ({visible, onCancel}) => {
             </View>
           </View>
           <View style={styles.menuList}>
-            <Text style={styles.item}>
-              <IconWithDescription
-                iconColor={Colors.WHITE}
-                icon={'Profile'}
-                text={'Мой профиль'}
-                textColor={Colors.WHITE}
-                textSize={16}
-              />
-            </Text>
-            <Text style={styles.item}>
-              <IconWithDescription
-                iconColor={Colors.WHITE}
-                icon={'Group'}
-                text={'Друзья'}
-                textColor={Colors.WHITE}
-                textSize={16}
-              />
-            </Text>
-            <Text style={styles.item}>
-              <IconWithDescription
-                iconColor={Colors.WHITE}
-                icon={'Search'}
-                text={'Поиск'}
-                textColor={Colors.WHITE}
-                textSize={16}
-              />
-            </Text>
-            <Text style={styles.item}>
-              <IconWithDescription
-                iconColor={Colors.WHITE}
-                icon={'SettingCog'}
-                text={'Настройки'}
-                textColor={Colors.WHITE}
-                textSize={16}
-              />
-            </Text>
+            <View style={styles.item}>
+              <TouchableOpacity
+                onPress={() => {
+                  onCancel();
+                  navigation.navigate('Profile');
+                }}>
+                <IconWithDescription
+                  iconColor={Colors.WHITE}
+                  icon={'Profile'}
+                  text={'Мой профиль'}
+                  textColor={Colors.WHITE}
+                  textSize={16}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity>
+                <IconWithDescription
+                  iconColor={Colors.WHITE}
+                  icon={'Group'}
+                  text={'Друзья'}
+                  textColor={Colors.WHITE}
+                  textSize={16}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity>
+                <IconWithDescription
+                  iconColor={Colors.WHITE}
+                  icon={'Search'}
+                  text={'Поиск'}
+                  textColor={Colors.WHITE}
+                  textSize={16}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity>
+                <IconWithDescription
+                  iconColor={Colors.WHITE}
+                  icon={'SettingCog'}
+                  text={'Настройки'}
+                  textColor={Colors.WHITE}
+                  textSize={16}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
         <Pressable style={styles.press} onPress={onCancel} />

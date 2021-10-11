@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Settings from '../screens/SettingsScreen';
-import Profile from '../screens/ProfileScreen';
+import Profile from '../screens/ProfileScreen/index';
 import Friends from '../screens/FriendsScreen';
 import Search from '../screens/SearchScreen';
 import Home from '../screens/HomeScreen';
@@ -10,7 +10,11 @@ const HomeStackNavigator = createNativeStackNavigator();
 
 export const HomeNavigator = () => {
   return (
-    <HomeStackNavigator.Navigator initialRouteName="Home">
+    <HomeStackNavigator.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+      }}>
       <HomeStackNavigator.Screen name="Home" component={Home} />
       <HomeStackNavigator.Screen name="Profile" component={Profile} />
       <HomeStackNavigator.Screen name="Friends" component={Friends} />
