@@ -1,14 +1,28 @@
 import React, {useState} from 'react';
-import {Image, Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  Touchable,
+} from 'react-native';
+import Menu from '../../components/HomeModal/Menu';
 
 import styles from './HomeStyle';
 
 export const Home = ({}) => {
+  const [menu, setMenu] = useState(true);
+
   return (
     <SafeAreaView>
-      <View>
+      <TouchableOpacity
+        style={{width: '100%'}}
+        activeOpacity={0}
+        onPress={() => setMenu(true)}>
+        <Menu visible={menu} onCancel={() => setMenu(false)} />
         <Text>Home</Text>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

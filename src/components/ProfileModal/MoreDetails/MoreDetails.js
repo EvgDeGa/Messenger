@@ -20,6 +20,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                   name={'BackSpace'}
                   size={12}
                   color={Colors.PEARL_PURPLE}
+                  textColor={Colors.PERIWINKLE_KRAIOLA}
                 />
               </TouchableOpacity>
             </View>
@@ -28,6 +29,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Chat'}
                 text={selfInf.status}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -35,6 +38,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Cake'}
                 text={'День рождения: ' + selfInf.birthDay}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -42,6 +47,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Location'}
                 text={'Город: ' + selfInf.city}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -49,6 +56,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Case'}
                 text={selfInf.studies}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
           </View>
@@ -62,6 +71,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'ArrowTopRigth'}
                 text={social.arrow}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -69,6 +80,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Twitter'}
                 text={social.twitter}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -76,6 +89,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Instagram'}
                 text={social.instagram}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -83,6 +98,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Facebook'}
                 text={social.facebook}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
             <View style={styles.item}>
@@ -90,6 +107,8 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Telegram'}
                 text={social.telegram}
+                textColor={Colors.PERIWINKLE_KRAIOLA}
+                textSize={14}
               />
             </View>
           </View>

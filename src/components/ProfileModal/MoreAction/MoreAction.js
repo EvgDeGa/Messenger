@@ -17,6 +17,8 @@ export const MoreAction = ({visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'Share'}
                 text={'Поделится'}
+                textColor={Colors.WHITE}
+                textSize={16}
               />
             </Text>
             <View style={styles.line} />
@@ -25,6 +27,8 @@ export const MoreAction = ({visible, onCancel}) => {
                 iconColor={Colors.WHITE}
                 icon={'DocDuplicate'}
                 text={'Скопировать ссылку'}
+                textColor={Colors.WHITE}
+                textSize={16}
               />{' '}
             </Text>
           </View>

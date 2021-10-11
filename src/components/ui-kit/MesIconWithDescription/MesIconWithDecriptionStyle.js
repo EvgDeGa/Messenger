@@ -12,8 +12,6 @@ export default {
   text: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,
     paddingLeft: 9,
-    fontSize: 14,
-    color: Colors.PERIWINKLE_KRAIOLA,
   },
   textContainer: {
     flex: 1,
