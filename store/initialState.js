@@ -2,7 +2,7 @@ const initialState = {
   selfInf: {
     name: 'Kat Williams',
     link: '@Williams',
-    podilePhoto: require('../assets/img/ProfileImage.png'),
+    podilePhoto: require('../src/assets/img/ProfileImage.png'),
     country: 'Россия',
     city: 'Санкт-Петербург',
     birthDay: '08 октября 1992',
@@ -60,7 +60,7 @@ const initialState = {
         {
           commetHolder: 'Kat Williams',
           body: null,
-          image: require('../assets/img/CommentPhoto.png'),
+          image: require('../src/assets/img/CommentPhoto.png'),
           date: '25 сен. в 22:12 ',
           id: '01793ef41-fdb6-4700-a4dc-6d7bbc54385a',
           like: '12',
@@ -80,7 +80,7 @@ const initialState = {
         {
           commetHolder: 'Kat Williams',
           body: '5User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
-          image: require('../assets/img/CommentPhoto.png'),
+          image: require('../src/assets/img/CommentPhoto.png'),
           date: '25 сен. в 22:12 ',
           id: '1ef06878-58b5-481b0-9349-73986ab66bb4',
           like: '12',
@@ -94,62 +94,62 @@ const initialState = {
     {
       id: '1',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/1.png'),
+      source: require('../src/assets/img/profilePhotoScrol/1.png'),
     },
     {
       id: '2',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/2.png'),
+      source: require('../src/assets/img/profilePhotoScrol/2.png'),
     },
     {
       id: '3',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/3.png'),
+      source: require('../src/assets/img/profilePhotoScrol/3.png'),
     },
     {
       id: '4',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/4.png'),
+      source: require('../src/assets/img/profilePhotoScrol/4.png'),
     },
     {
       id: '5',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/5.png'),
+      source: require('../src/assets/img/profilePhotoScrol/5.png'),
     },
     {
       id: '6',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/6.png'),
+      source: require('../src/assets/img/profilePhotoScrol/6.png'),
     },
     {
       id: '7',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/7.png'),
+      source: require('../src/assets/img/profilePhotoScrol/7.png'),
     },
     {
       id: '8',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/8.png'),
+      source: require('../src/assets/img/profilePhotoScrol/8.png'),
     },
     {
       id: '9',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/9.png'),
+      source: require('../src/assets/img/profilePhotoScrol/9.png'),
     },
     {
       id: '13',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/1.png'),
+      source: require('../src/assets/img/profilePhotoScrol/1.png'),
     },
     {
       id: '14',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/2.png'),
+      source: require('../src/assets/img/profilePhotoScrol/2.png'),
     },
     {
       id: '15',
       title: 'First Item',
-      source: require('../assets/img/profilePhotoScrol/3.png'),
+      source: require('../src/assets/img/profilePhotoScrol/3.png'),
     },
   ],
 };

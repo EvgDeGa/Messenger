@@ -20,7 +20,7 @@ export const Menu = ({visible, onCancel, navigation}) => {
           <View style={styles.personalInformation}>
             <Image
               style={styles.profileImage}
-              source={require('../../../../assets/img/ProfileImage.png')}
+              source={require('../../../../src/assets/img/ProfileImage.png')}
             />
             <View style={styles.textContainer}>
               <Text style={styles.name}>Kat Williams</Text>

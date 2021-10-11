@@ -21,7 +21,7 @@ export const Comment = ({item}) => {
         <View style={styles.image}>
           <Image
             style={{width: imageSize, height: imageSize}}
-            source={require('../../../../assets/img/ProfileImage.png')}
+            source={require('../../../../src/assets/img/ProfileImage.png')}
           />
         </View>
         {/* <Icon */}
