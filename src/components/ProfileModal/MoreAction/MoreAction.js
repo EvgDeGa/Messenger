@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, View, Modal, TouchableOpacity} from 'react-native';
 
-import IconWithDescription from '../../../../components/ui-kit/MesIconWithDescription';
+import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 
-import {Colors} from '../../../../constants/Colors';
+import {Colors} from '../../../constants/Colors';
 import styles from './MoreActionStyle.js';
 
 export const MoreAction = ({visible, onCancel}) => {

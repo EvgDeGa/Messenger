@@ -1,17 +1,54 @@
-import React from 'react';
+// import React from 'react';
 import {View} from 'react-native';
 import {Colors} from './src/constants/Colors';
 import CommentList from './src/components/ui-kit/MesCommentList';
 import Profile from './src/screens/ProfileScreen';
 
-export default function App() {
+import * as React from 'react';
+import {Button} from 'react-native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+
+function HomeScreen({navigation}) {
   return (
-    // <Profile data={DATAPROFILE} />
-    <View style={{backgroundColor: Colors.ULTRAMARINE_BLUE, padding: 17}}>
-      <CommentList commentList={DATA.commentList} />
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
     </View>
   );
 }
+
+function NotificationsScreen({navigation}) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+
+// export default function App() {
+//   return (
+//     <Profile data={DATAPROFILE} />
+//     // <View style={{backgroundColor: Colors.ULTRAMARINE_BLUE, padding: 17}}>
+//     //   <CommentList commentList={DATA.commentList} />
+//     // </View>
+//   );
+// }
 
 const DATAPROFILE = {
   selfInf: {

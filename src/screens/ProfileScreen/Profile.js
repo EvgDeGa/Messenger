@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {Image, Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 
-import {Colors} from '../../constants/Colors';
-import Icon from '../../components/Icon';
-import styles from './ProfileStyle';
-import TextWithNumber from '../../components/ui-kit/MesTextWithNumber/index';
 import ProfilePhotoScroll from '../../components/ui-kit/MesProfilePhotoScroll';
-import MoreAction from './ProfileModal/MoreAction';
 import TransparentButton from '../../components/ui-kit/MesTransparentButton';
-import MoreDetails from './ProfileModal/MoreDetails';
+import TextWithNumber from '../../components/ui-kit/MesTextWithNumber/index';
+import MoreDetails from '../../components/ProfileModal/MoreDetails';
+import MoreAction from '../../components/ProfileModal/MoreAction';
+import Icon from '../../components/Icon';
+
+import {Colors} from '../../constants/Colors';
+import styles from './ProfileStyle';
 
 export const Profile = ({data}) => {
   const [moreDetails, setMoreDetails] = useState(false);
