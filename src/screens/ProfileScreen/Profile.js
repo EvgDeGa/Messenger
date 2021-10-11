@@ -11,7 +11,7 @@ import Icon from '../../components/Icon';
 import {Colors} from '../../constants/Colors';
 import styles from './ProfileStyle';
 
-export const Profile = ({data}) => {
+export const Profile = () => {
   const [moreDetails, setMoreDetails] = useState(false);
   const [moreAction, setMoreAction] = useState(false);
 
@@ -69,4 +69,89 @@ export const Profile = ({data}) => {
       />
     </SafeAreaView>
   );
+};
+
+const data = {
+  selfInf: {
+    name: 'Kat Williams',
+    link: '@Williams',
+    podilePhoto: require('../../../assets/img/ProfileImage.png'),
+    country: 'Россия',
+    city: 'Санкт-Петербург',
+    birthDay: '08 октября 1992',
+    status: 'They never ask people to do things they wouldn’t do themselves.',
+    workpalce: 'Artist by Passion!',
+    studies: 'ВГУЮ в г. Санкт-Петербург',
+  },
+  social: {
+    arrow: 'http://t.me/durov',
+    twitter: 'Durov',
+    instagram: 'Pavel Durov',
+    facebook: 'durov',
+    telegram: 'durov',
+  },
+  followers: '2467',
+  following: '1589',
+  gallary: [
+    {
+      id: '1',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/1.png'),
+    },
+    {
+      id: '2',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/2.png'),
+    },
+    {
+      id: '3',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/3.png'),
+    },
+    {
+      id: '4',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/4.png'),
+    },
+    {
+      id: '5',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/5.png'),
+    },
+    {
+      id: '6',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/6.png'),
+    },
+    {
+      id: '7',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/7.png'),
+    },
+    {
+      id: '8',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/8.png'),
+    },
+    {
+      id: '9',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/9.png'),
+    },
+    {
+      id: '13',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/1.png'),
+    },
+    {
+      id: '14',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/2.png'),
+    },
+    {
+      id: '15',
+      title: 'First Item',
+      source: require('../../../assets/img/profilePhotoScrol/3.png'),
+    },
+  ],
 };
