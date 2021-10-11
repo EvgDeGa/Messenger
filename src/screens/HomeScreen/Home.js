@@ -25,7 +25,9 @@ export const Home = props => {
           onCancel={() => setMenu(false)}
           navigation={props.navigation}
         />
-        <Text>Home</Text>
+        <Text>
+          НАЖМИТЕ НА ТЕКСТ, ЧТО БЫ ОТКРЫТЬ МЕНЮ, РАБОАТЕТ ТОЛЬКО ПРОФИЛЬ В МЕНЮ
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
