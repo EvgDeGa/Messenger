@@ -1,3 +1,3 @@
-import {Post} from './MesPosStyle';
+import {Post} from './MesPost';
 
 export default Post;

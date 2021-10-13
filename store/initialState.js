@@ -22,13 +22,16 @@ const initialState = {
   postInformation: [
     {
       postID: '1',
-      postHolder: 'name',
-      postDate: '11',
-      like: '22',
+      postHolder: 'Kat Williams',
+      holderPhoto: require('../src/assets/img/postPhotoProfile/p1.png'),
+      postDate: '1h ago',
+      like: '8998',
+      postText: 'Writing code is not so bad!',
+      postPhoto: require('../src/assets/img/postPhoto/1.png'),
       commentList: [
         {
           commetHolder: 'Kat Williams',
-          body: '1User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
+          body: 'User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
           image: null,
           date: '25 сен. в 22:12 ',
           id: '5a01231d-3ee9-4bf6-9a12450-462a8277898a',
@@ -37,7 +40,7 @@ const initialState = {
           reply: [
             {
               commetHolder: 'Kat Williams',
-              body: '2User experience design for the Web (and its siblings.',
+              body: 'User experience design for the Web (and its siblings.',
               image: null,
               date: '25 сен. в 22:12 ',
               id: '514aa634-08bd-4ca3-8a1a-eb10846808ed',
@@ -47,7 +50,7 @@ const initialState = {
             },
             {
               commetHolder: 'Kat Williams',
-              body: '3User experience design for the Web (and its siblings.',
+              body: 'User experience design for the Web (and its siblings.',
               image: null,
               date: '25 сен. в 22:12 ',
               id: '514aa634-08bd-s4ca3-8a1a-eb1012846808ed',
@@ -69,7 +72,7 @@ const initialState = {
         },
         {
           commetHolder: 'Kat Williams',
-          body: '4User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
+          body: 'User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
           image: null,
           date: '25 сен. в 22:12 ',
           id: '1ef06878-58b5-48b0-9349-73986ab616bb4',
@@ -79,7 +82,7 @@ const initialState = {
         },
         {
           commetHolder: 'Kat Williams',
-          body: '5User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
+          body: 'User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice.',
           image: require('../src/assets/img/CommentPhoto.png'),
           date: '25 сен. в 22:12 ',
           id: '1ef06878-58b5-481b0-9349-73986ab66bb4',
@@ -88,6 +91,36 @@ const initialState = {
           reply: [],
         },
       ],
+    },
+    {
+      postID: '2',
+      postHolder: ' Tony Monta',
+      holderPhoto: require('../src/assets/img/postPhotoProfile/p2.png'),
+      postDate: '1h ago',
+      like: '14',
+      postText: 'Writing code is not so bad!',
+      postPhoto: null,
+      commentList: null,
+    },
+    {
+      postID: '3',
+      postHolder: ' Jessica Thompson',
+      holderPhoto: require('../src/assets/img/postPhotoProfile/p3.png'),
+      postDate: '2h ago',
+      like: '17',
+      postText: null,
+      postPhoto: require('../src/assets/img/postPhoto/2.png'),
+      commentList: null,
+    },
+    {
+      postID: '4',
+      postHolder: 'Dustin Grant',
+      holderPhoto: require('../src/assets/img/postPhotoProfile/p4.png'),
+      postDate: '3h ago',
+      like: '238',
+      postText: null,
+      postPhoto: require('../src/assets/img/postPhoto/3.png'),
+      commentList: null,
     },
   ],
   gallary: [
