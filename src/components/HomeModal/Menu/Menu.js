@@ -44,7 +44,11 @@ export const Menu = ({visible, onCancel, navigation}) => {
               </TouchableOpacity>
             </View>
             <View style={styles.item}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  onCancel();
+                  navigation.navigate('Friends');
+                }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
                   icon={'Group'}
@@ -55,7 +59,11 @@ export const Menu = ({visible, onCancel, navigation}) => {
               </TouchableOpacity>
             </View>
             <View style={styles.item}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  onCancel();
+                  navigation.navigate('Search');
+                }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
                   icon={'Search'}

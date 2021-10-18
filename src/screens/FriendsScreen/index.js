@@ -1,3 +1,10 @@
 import {Friends} from './Friends';
+import {connect} from 'react-redux';
 
-export default Friends;
+const mapStateToProps = state => ({
+  data: state.friends,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Friends);
