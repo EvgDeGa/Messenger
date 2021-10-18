@@ -1,3 +1,10 @@
 import {Search} from './Search';
+import {connect} from 'react-redux';
 
-export default Search;
+const mapStateToProps = state => ({
+  data: state.friends,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
