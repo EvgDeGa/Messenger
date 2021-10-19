@@ -2,7 +2,8 @@ import {Search} from './Search';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
-  data: state.friends,
+  friends: state.friends,
+  community: state.community,
 });
 
 const mapDispatchToProps = dispatch => ({});

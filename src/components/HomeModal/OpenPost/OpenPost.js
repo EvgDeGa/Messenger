@@ -30,7 +30,9 @@ export const OpenPost = ({visible, item, onCancel}) => {
             {item.postPhoto
               ? item.postPhoto.map(postPhoto => {
                   return (
-                    <View style={styles.imageContainer}>
+                    <View
+                      key={new Date().getTime()}
+                      style={styles.imageContainer}>
                       <Image style={styles.image} source={postPhoto.photo} />
                     </View>
                   );

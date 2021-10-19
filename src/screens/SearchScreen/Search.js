@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -16,7 +16,9 @@ import PersonInList from '../../components/ui-kit/MesPersonInList';
 
 export const Search = props => {
   const [selectedId, setSelectedId] = useState(null);
-  const [person, setPerson] = useState(props.data);
+  const [items, setItems] = useState(props.community.concat(props.friends));
+  const [data, setData] = useState(items);
+  const [check, setCheck] = useState(1);
 
   const renderItem = ({item}) => {
     return <PersonInList item={item} />;
@@ -24,14 +26,41 @@ export const Search = props => {
 
   const findItem = text => {
     if (text != ' ') {
-      setPerson(
-        props.data.filter(person =>
+      setItems(
+        data.filter(person =>
           person.name.toLowerCase().includes(text.toLowerCase()),
         ),
       );
     } else {
-      setPerson(props.data);
+      setItems(data);
     }
+  };
+
+  const menuSection = n => {
+    setCheck(n);
+    switch (n) {
+      case 1:
+        setItems(props.community.concat(props.friends));
+        setData(props.community.concat(props.friends));
+        break;
+
+      case 2:
+        setItems(props.friends);
+        setData(props.friends);
+        break;
+
+      case 3:
+        setItems(props.community);
+        setData(props.community);
+        break;
+    }
+  };
+
+  const cheked = n => {
+    if (check == n) {
+      return styles.itemLineCheck;
+    }
+    return styles.itemLine;
   };
 
   return (
@@ -54,21 +83,27 @@ export const Search = props => {
         </View>
       </View>
       <View style={styles.categoryMenu}>
+        <View style={styles.menuPadding} />
         <View style={styles.textContainer}>
-          <Text style={styles.itemText}>Все</Text>
-          <Text style={styles.itemText}>Люди</Text>
-          <Text style={styles.itemText}>Сообщества</Text>
+          <TouchableOpacity onPress={() => menuSection(1)}>
+            <Text style={styles.itemText}>Все</Text>
+            <View style={cheked(1)} />
+          </TouchableOpacity>
+          <View style={styles.filler} />
+          <TouchableOpacity onPress={() => menuSection(2)}>
+            <Text style={styles.itemText}>Люди</Text>
+            <View style={cheked(2)} />
+          </TouchableOpacity>
+          <View style={styles.filler} />
+          <TouchableOpacity onPress={() => menuSection(3)}>
+            <Text style={styles.itemText}>Сообщества</Text>
+            <View style={cheked(3)} />
+          </TouchableOpacity>
         </View>
-        {/* <View style={styles.underLine} /> */}
-
-        <View style={styles.lineContainer}>
-          <View style={[styles.itemLine, {width: 31}]} />
-          <View style={[styles.itemLine, {width: 46}]} />
-          <View style={[styles.itemLine, {width: 92}]} />
-        </View>
+        <View style={styles.menuPadding} />
       </View>
       <FlatList
-        data={person}
+        data={items}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selectedId}

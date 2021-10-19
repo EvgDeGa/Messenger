@@ -129,9 +129,23 @@ const initialState = {
       city: 'Санкт-Петербург',
     },
   ],
+  community: [
+    {
+      id: '1342',
+      name: 'Community1',
+      profilePhoto: require('../src/assets/img/ProfileImage.png'),
+      city: 'Welcome',
+    },
+    {
+      id: '223423',
+      name: 'Community2',
+      profilePhoto: require('../src/assets/img/ProfileImage.png'),
+      city: 'Welcome',
+    },
+  ],
   postInformation: [
     {
-      postID: '1',
+      id: '1',
       postHolder: 'Kat Williams',
       holderPhoto: require('../src/assets/img/postPhotoProfile/p1.png'),
       postDate: '1h ago',
@@ -206,7 +220,7 @@ const initialState = {
       ],
     },
     {
-      postID: '2',
+      id: '2',
       postHolder: ' Tony Monta',
       holderPhoto: require('../src/assets/img/postPhotoProfile/p2.png'),
       postDate: '1h ago',
@@ -216,7 +230,7 @@ const initialState = {
       commentList: null,
     },
     {
-      postID: '3',
+      id: '3',
       postHolder: ' Jessica Thompson',
       holderPhoto: require('../src/assets/img/postPhotoProfile/p3.png'),
       postDate: '2h ago',
@@ -226,7 +240,7 @@ const initialState = {
       commentList: null,
     },
     {
-      postID: '4',
+      id: '4',
       postHolder: 'Dustin Grant',
       holderPhoto: require('../src/assets/img/postPhotoProfile/p4.png'),
       postDate: '3h ago',

@@ -30,12 +30,21 @@ export const styles = StyleSheet.create({
     color: Colors.WHITE,
   },
   categoryMenu: {
-    flexDirection: 'column',
-  },
-  textContainer: {
-    paddingHorizontal: 43,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexGrow: 1,
+  },
+  menuPadding: {
+    width: 43,
+    borderBottomWidth: 1,
+    borderColor: Colors.PURPLE_BLUE,
+  },
+  menuButton: {
+    // borderWidth: 1,
   },
   itemText: {
     marginBottom: 7,
@@ -43,16 +52,23 @@ export const styles = StyleSheet.create({
     color: Colors.PEARL_PURPLE,
     fontSize: 14,
   },
+  filler: {
+    borderBottomWidth: 1,
+    borderColor: Colors.PURPLE_BLUE,
+    flexGrow: 1,
+  },
   lineContainer: {
-    paddingHorizontal: 39,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   itemLine: {
+    borderBottomWidth: 1,
+    marginTop: 1,
+    borderColor: Colors.PURPLE_BLUE,
+  },
+  itemLineCheck: {
     borderWidth: 1,
     borderRadius: 12,
-    width: 100,
-
     borderColor: Colors.WHITE,
   },
   underLine: {
