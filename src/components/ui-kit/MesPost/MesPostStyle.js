@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 19,
   },
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   textPost: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,
     color: Colors.PERIWINKLE_KRAIOLA,

@@ -24,7 +24,6 @@ export const Comment = ({item}) => {
             source={require('../../../../src/assets/img/ProfileImage.png')}
           />
         </View>
-        {/* <Icon */}
         <View style={styles.commentBody}>
           <Text style={styles.nameText}>{item.commetHolder}</Text>
           <CommentContent text={item.body} image={item.image} />

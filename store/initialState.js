@@ -137,7 +137,10 @@ const initialState = {
       postDate: '1h ago',
       like: '8998',
       postText: 'Writing code is not so bad!',
-      postPhoto: require('../src/assets/img/postPhoto/1.png'),
+      postPhoto: [
+        {photo: require('../src/assets/img/postPhoto/1.png')},
+        {photo: require('../src/assets/img/postPhoto/1.png')},
+      ],
       commentList: [
         {
           commetHolder: 'Kat Williams',
@@ -219,7 +222,7 @@ const initialState = {
       postDate: '2h ago',
       like: '17',
       postText: null,
-      postPhoto: require('../src/assets/img/postPhoto/2.png'),
+      postPhoto: [{photo: require('../src/assets/img/postPhoto/2.png')}],
       commentList: null,
     },
     {
@@ -229,7 +232,7 @@ const initialState = {
       postDate: '3h ago',
       like: '238',
       postText: null,
-      postPhoto: require('../src/assets/img/postPhoto/3.png'),
+      postPhoto: [{photo: require('../src/assets/img/postPhoto/3.png')}],
       commentList: null,
     },
   ],

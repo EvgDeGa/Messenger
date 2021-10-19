@@ -5,13 +5,25 @@ import Post from '../../components/ui-kit/MesPost';
 import Icon from '../../components/Icon';
 import {styles} from './HomeStyle';
 import {Colors} from '../../constants/Colors';
+import News from '../../components/HomeModal/News';
 
 export const Home = props => {
   const [menu, setMenu] = useState(false);
+  const [openPost, setOpenPost] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({item}) => {
-    return <Post data={item} onPress={() => setSelectedId(item.id)} />;
+    return (
+      <Post
+        data={item}
+        onPress={() => {
+          setSelectedItem(item);
+          setSelectedId(item.id);
+          setOpenPost(true);
+        }}
+      />
+    );
   };
 
   return (
@@ -34,6 +46,14 @@ export const Home = props => {
         onCancel={() => setMenu(false)}
         navigation={props.navigation}
       />
+      {selectedItem ? (
+        <News
+          item={selectedItem}
+          visible={openPost}
+          onCancel={() => setOpenPost(false)}
+        />
+      ) : null}
+
       <FlatList
         data={props.data.postInformation}
         renderItem={renderItem}

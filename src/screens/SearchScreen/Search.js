@@ -14,8 +14,6 @@ import PersonInList from '../../components/ui-kit/MesPersonInList';
 
 export const Search = props => {
   const [selectedId, setSelectedId] = useState(null);
-
-  const [text, setText] = useState('Поиск');
   const [person, setPerson] = useState(props.data);
 
   const renderItem = ({item}) => {
@@ -23,7 +21,6 @@ export const Search = props => {
   };
 
   const findItem = text => {
-    setText(text);
     if (text != ' ') {
       setPerson(
         props.data.filter(person =>

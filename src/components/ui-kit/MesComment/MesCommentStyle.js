@@ -2,9 +2,7 @@ import {Fonts} from '../../../constants/Fonts';
 import {Colors} from '../../../constants/Colors';
 
 export default {
-  commentContainer: {
-    paddingTop: 10,
-  },
+  commentContainer: {},
   commentItem: {
     flexDirection: 'row',
   },
@@ -15,6 +13,7 @@ export default {
   commentBody: {
     flex: 1,
     flexDirection: 'column',
+    paddingBottom: 10,
     paddingTop: 4,
     paddingLeft: 10,
     paddingRight: 7,

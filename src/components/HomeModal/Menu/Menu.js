@@ -74,7 +74,11 @@ export const Menu = ({visible, onCancel, navigation}) => {
               </TouchableOpacity>
             </View>
             <View style={styles.item}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  onCancel();
+                  navigation.navigate('Settings');
+                }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
                   icon={'SettingCog'}

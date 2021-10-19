@@ -3,12 +3,17 @@ import {Text, TouchableOpacity, View, Image} from 'react-native';
 import PostHeader from '../MesPostHeader';
 import {styles} from './MesPostStyle';
 import PostFooter from '../MesPostFooter';
+import Icon from '../../Icon';
+import {Colors} from '../../../constants/Colors';
 
 export const Post = props => {
   return (
     <View>
       <TouchableOpacity onPress={props.onPress}>
-        <PostHeader data={props.data} />
+        <View style={styles.container}>
+          <PostHeader data={props.data} />
+          <Icon name={'DotsVertical'} color={Colors.PEARL_PURPLE} size={20} />
+        </View>
       </TouchableOpacity>
       <View style={styles.postContent}>
         {props.data.postText ? (
@@ -19,7 +24,10 @@ export const Post = props => {
         ) : null}
         {props.data.postPhoto ? (
           <View style={styles.imageContainer}>
-            <Image style={styles.imagePost} source={props.data.postPhoto} />
+            <Image
+              style={styles.imagePost}
+              source={props.data.postPhoto[0].photo}
+            />
           </View>
         ) : null}
       </View>
