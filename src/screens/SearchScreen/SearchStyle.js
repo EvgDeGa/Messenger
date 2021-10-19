@@ -1,6 +1,6 @@
 import {Fonts} from '../../constants/Fonts';
 import {Colors} from '../../constants/Colors';
-import {StyleSheet, Dimensions, FlatList} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   safeAreaContainer: {

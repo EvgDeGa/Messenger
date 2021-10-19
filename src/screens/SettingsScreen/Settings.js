@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import {Image, Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
-import BackHeader from '../../components/ui-kit/MesBackHeader';
-import IconWithDescription from '../../components/ui-kit/MesIconWithDescription';
-import {Colors} from '../../constants/Colors';
+import React from 'react';
+import {SafeAreaView, TouchableOpacity} from 'react-native';
 
 import {styles} from './SettingsStyle';
+import {Colors} from '../../constants/Colors';
+
+import BackHeader from '../../components/ui-kit/MesBackHeader';
+import IconWithDescription from '../../components/ui-kit/MesIconWithDescription';
 
 export const Settings = props => {
   return (

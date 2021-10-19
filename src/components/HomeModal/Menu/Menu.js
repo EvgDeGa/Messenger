@@ -12,7 +12,7 @@ import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 import {Colors} from '../../../constants/Colors';
 import {styles} from './MenuStyle';
 
-export const Menu = ({visible, onCancel, navigation}) => {
+export const Menu = ({visible, onCancel, navigation, selfInf}) => {
   return (
     <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.centralView} onPress={onCancel}>
@@ -23,8 +23,8 @@ export const Menu = ({visible, onCancel, navigation}) => {
               source={require('../../../../src/assets/img/ProfileImage.png')}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.name}>Kat Williams</Text>
-              <Text style={styles.link}>@Williams</Text>
+              <Text style={styles.name}>{selfInf.name}</Text>
+              <Text style={styles.link}>{selfInf.link}</Text>
             </View>
           </View>
           <View style={styles.menuList}>

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
+
 import Comment from '../MesComment';
 
 export const CommentList = ({commentList}) => {

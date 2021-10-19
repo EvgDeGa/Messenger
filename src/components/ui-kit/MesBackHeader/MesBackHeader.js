@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import {Image, View, Text, FlatList, TouchableOpacity} from 'react-native';
-import {Colors} from '../../../constants/Colors';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+
 import {styles} from './MesBackHeaderStyle';
+import {Colors} from '../../../constants/Colors';
 
 import Icon from '../../Icon';
 

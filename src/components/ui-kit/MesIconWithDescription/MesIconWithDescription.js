@@ -1,7 +1,9 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+
+import {styles} from './MesIconWithDecriptionStyle';
+
 import Icon from '../../Icon';
-import styles from './MesIconWithDecriptionStyle';
 
 export const IconWithDescription = ({
   iconColor,

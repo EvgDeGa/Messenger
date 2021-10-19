@@ -7,9 +7,11 @@ import {
   TextInput,
   FlatList,
 } from 'react-native';
-import Icon from '../../components/Icon';
+
 import {styles} from './SearchStyle';
 import {Colors} from '../../constants/Colors';
+
+import Icon from '../../components/Icon';
 import PersonInList from '../../components/ui-kit/MesPersonInList';
 
 export const Search = props => {

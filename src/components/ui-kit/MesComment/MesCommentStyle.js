@@ -1,7 +1,8 @@
 import {Fonts} from '../../../constants/Fonts';
 import {Colors} from '../../../constants/Colors';
+import {StyleSheet} from 'react-native';
 
-export default {
+export const styles = StyleSheet.create({
   commentContainer: {},
   commentItem: {
     flexDirection: 'row',
@@ -52,4 +53,4 @@ export default {
     lineHeight: 16,
     color: Colors.WHITE,
   },
-};
+});

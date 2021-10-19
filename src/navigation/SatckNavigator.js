@@ -1,7 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import Settings from '../screens/SettingsScreen';
-import Profile from '../screens/ProfileScreen/index';
+import Profile from '../screens/ProfileScreen';
 import Friends from '../screens/FriendsScreen';
 import Search from '../screens/SearchScreen';
 import Home from '../screens/HomeScreen';

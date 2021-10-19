@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
-import Icon from '../../Icon';
+
 import {styles} from './MesPersonInListStyle';
 
 export const PersonInList = props => {

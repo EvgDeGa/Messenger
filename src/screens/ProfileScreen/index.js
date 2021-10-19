@@ -1,4 +1,4 @@
-import Profile from './Profile';
+import {Profile} from './Profile';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -7,5 +7,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({});
 
-// export default Profile;
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

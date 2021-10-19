@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {Image, Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 
 import ProfilePhotoScroll from '../../components/ui-kit/MesProfilePhotoScroll';
@@ -9,7 +9,7 @@ import MoreAction from '../../components/ProfileModal/MoreAction';
 import Icon from '../../components/Icon';
 
 import {Colors} from '../../constants/Colors';
-import styles from './ProfileStyle';
+import {styles} from './ProfileStyle';
 
 const Profile = props => {
   const [moreDetails, setMoreDetails] = useState(false);

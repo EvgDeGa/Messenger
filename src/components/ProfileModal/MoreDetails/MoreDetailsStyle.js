@@ -1,7 +1,8 @@
 import {Fonts} from '../../../constants/Fonts';
 import {Colors} from '../../../constants/Colors';
+import {StyleSheet} from 'react-native';
 
-export default {
+export const styles = StyleSheet.create({
   centralView: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     flex: 1,
@@ -40,4 +41,4 @@ export default {
     borderTopWidth: 1,
     borderColor: Colors.PURPLE_BLUE,
   },
-};
+});

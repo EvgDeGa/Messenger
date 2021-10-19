@@ -9,29 +9,17 @@ import {
   TextInput,
 } from 'react-native';
 
-import IconWithDescription from '../../ui-kit/MesIconWithDescription';
+import {styles} from './OpenPostStyle';
 import {Colors} from '../../../constants/Colors';
-import {styles} from './NewsStyle';
+
+import Icon from '../../Icon';
 import BackHeader from '../../ui-kit/MesBackHeader';
 import PostHeader from '../../ui-kit/MesPostHeader';
 import CommentList from '../../ui-kit/MesCommentList';
-import Icon from '../../Icon';
 import numberWithComma from '../../Functions/numberWithComma';
+import numberOfComments from '../../Functions/numberOfComments';
 
-export const News = ({visible, item, onCancel}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
-  function numberOfComments(item) {
-    if (item.commentList) {
-      let number = 0;
-      for (let i = 0; i < item.commentList.length; i++) {
-        number += item.commentList[i].reply.length;
-      }
-      return item.commentList.length + number;
-    }
-    return 0;
-  }
-
+export const OpenPost = ({visible, item, onCancel}) => {
   return (
     <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.centralView} onPress={onCancel}>
@@ -54,15 +42,17 @@ export const News = ({visible, item, onCancel}) => {
           </View>
           <View style={styles.interactionBlock}>
             <View style={styles.like}>
-              <Icon name={'Like'} color={Colors.WHITE} size={20} />
+              <TouchableOpacity>
+                <Icon name={'Like'} color={Colors.WHITE} size={20} />
+              </TouchableOpacity>
               <Text style={styles.likeText}>{numberWithComma(item.like)}</Text>
             </View>
-
-            <Icon name={'Bookmark'} size={18} color={Colors.WHITE} />
+            <TouchableOpacity>
+              <Icon name={'Bookmark'} size={18} color={Colors.WHITE} />
+            </TouchableOpacity>
           </View>
-
           <Text style={styles.numberOfComment}>
-            {numberOfComments(item)}
+            {numberOfComments(item.commentList)}
             {' комментариев'}
           </Text>
           <View style={styles.line} />
@@ -74,13 +64,15 @@ export const News = ({visible, item, onCancel}) => {
           <View style={styles.commentInput}>
             <TextInput
               style={styles.input}
-              onChangeText={text => findItem(text)}
+              // onChangeText={text => findItem(text)}
               placeholder="Комментарий"
               placeholderTextColor={Colors.PEARL_PURPLE}
               underlineColorAndroid="rgba(0,0,0,0)"
             />
           </View>
-          <Icon name={'PaperAirplane'} color={Colors.WHITE} size={22} />
+          <TouchableOpacity>
+            <Icon name={'PaperAirplane'} color={Colors.WHITE} size={22} />
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>

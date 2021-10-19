@@ -1,7 +1,8 @@
 import {Fonts} from '../../constants/Fonts';
 import {Colors} from '../../constants/Colors';
+import {StyleSheet} from 'react-native';
 
-export default {
+export const styles = StyleSheet.create({
   profileContainer: {
     flex: 1,
     backgroundColor: Colors.ULTRAMARINE_BLUE,
@@ -94,4 +95,4 @@ export default {
     height: 45,
     backgroundColor: Colors.SAPPHIRE_BLUE,
   },
-};
+});

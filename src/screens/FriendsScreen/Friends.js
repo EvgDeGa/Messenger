@@ -1,15 +1,10 @@
 import React, {useState} from 'react';
-import {
-  FlatList,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {FlatList, View, SafeAreaView} from 'react-native';
+
+import {styles} from './FriendsStyle';
+
 import BackHeader from '../../components/ui-kit/MesBackHeader';
 import PersonInList from '../../components/ui-kit/MesPersonInList';
-import {Colors} from '../../constants/Colors';
-import {styles} from './FriendsStyle';
 
 export const Friends = props => {
   const [selectedId, setSelectedId] = useState(null);

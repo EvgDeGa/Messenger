@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
-import Icon from '../../Icon';
-import {Colors} from '../../../constants/Colors';
+
 import {styles} from './MesPostheaderStyle';
 
 export const PostHeader = props => {

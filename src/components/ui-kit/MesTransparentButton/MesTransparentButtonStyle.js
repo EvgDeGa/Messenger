@@ -1,7 +1,8 @@
 import {Fonts} from '../../../constants/Fonts';
 import {Colors} from '../../../constants/Colors';
+import {StyleSheet} from 'react-native';
 
-export default {
+export const styles = StyleSheet.create({
   text: {
     borderColor: Colors.PURPLE_BLUE,
     borderWidth: 1,
@@ -17,4 +18,4 @@ export default {
     color: Colors.WHITE,
     textAlign: 'center',
   },
-};
+});

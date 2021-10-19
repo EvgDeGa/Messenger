@@ -1,11 +1,11 @@
 import React from 'react';
 import {Text, View, Modal, TouchableOpacity} from 'react-native';
 
-import IconWithDescription from '../../ui-kit/MesIconWithDescription';
-
+import {styles} from './MoreDetailsStyle';
 import {Colors} from '../../../constants/Colors';
+
 import Icon from '../../Icon';
-import styles from './MoreDetailsStyle';
+import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 
 export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
   return (

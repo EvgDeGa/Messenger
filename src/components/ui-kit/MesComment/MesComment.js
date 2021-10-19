@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {Image, View, Text, FlatList, TouchableOpacity} from 'react-native';
+
+import {styles} from './MesCommentStyle';
 import {Colors} from '../../../constants/Colors';
-import styles from './MesCommentStyle';
-import CommentContent from '../MesCommentContent';
+
 import Icon from '../../Icon';
+import CommentContent from '../MesCommentContent';
 
 export const Comment = ({item}) => {
   const [selectedId, setSelectedId] = useState(null);

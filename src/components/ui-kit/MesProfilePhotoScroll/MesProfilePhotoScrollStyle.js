@@ -1,5 +1,6 @@
-import {Dimensions} from 'react-native';
-export default {
+import {StyleSheet, Dimensions} from 'react-native';
+
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -13,4 +14,4 @@ export default {
   columnWrapperStyle: {
     justifyContent: 'space-between',
   },
-};
+});

@@ -1,20 +1,25 @@
 import React from 'react';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
-import PostHeader from '../MesPostHeader';
+
 import {styles} from './MesPostStyle';
-import PostFooter from '../MesPostFooter';
-import Icon from '../../Icon';
 import {Colors} from '../../../constants/Colors';
+
+import Icon from '../../Icon';
+import PostFooter from '../MesPostFooter';
+import PostHeader from '../MesPostHeader';
 
 export const Post = props => {
   return (
     <View>
-      <TouchableOpacity onPress={props.onPress}>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={props.onPress}>
           <PostHeader data={props.data} />
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Icon name={'DotsVertical'} color={Colors.PEARL_PURPLE} size={20} />
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.postContent}>
         {props.data.postText ? (
           <Text style={[styles.textPost]}>{props.data.postText}</Text>
@@ -31,7 +36,11 @@ export const Post = props => {
           </View>
         ) : null}
       </View>
-      <PostFooter data={props.data} />
+      <PostFooter
+        like={props.data.like}
+        commentList={props.data.commentList}
+        onOpen={props.onPress}
+      />
       <View style={styles.footerLine} />
     </View>
   );

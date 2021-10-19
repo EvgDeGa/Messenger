@@ -1,29 +1,36 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import Icon from '../../Icon';
-import {Colors} from '../../../constants/Colors';
-import {styles} from './MesPostFooterStyle';
-import numberWithComma from '../../Functions/numberWithComma';
+import {Text, View, TouchableOpacity} from 'react-native';
 
-export const PostFooter = props => {
+import {styles} from './MesPostFooterStyle';
+import {Colors} from '../../../constants/Colors';
+
+import Icon from '../../Icon';
+import numberWithComma from '../../Functions/numberWithComma';
+import numberOfComments from '../../Functions/numberOfComments';
+
+export const PostFooter = ({like, commentList, onOpen}) => {
   return (
     <View style={styles.container}>
       <View style={styles.likeComment}>
         <View style={styles.like}>
-          <Icon name={'Like'} color={Colors.WHITE} size={20} />
-          <Text style={styles.text}>{numberWithComma(props.data.like)}</Text>
+          <TouchableOpacity>
+            <Icon name={'Like'} color={Colors.WHITE} size={20} />
+          </TouchableOpacity>
+          <Text style={styles.text}>{numberWithComma(like)}</Text>
         </View>
-        {props.data.commentList ? (
+        {commentList ? (
           <View style={styles.comment}>
-            <Icon name={'Chat'} color={Colors.WHITE} size={20} />
-            <Text style={styles.text}>
-              {numberWithComma(props.data.commentList.length)}
-            </Text>
+            <TouchableOpacity onPress={() => onOpen()}>
+              <Icon name={'Chat'} color={Colors.WHITE} size={20} />
+            </TouchableOpacity>
+            <Text style={styles.text}>{numberOfComments(commentList)}</Text>
           </View>
         ) : null}
       </View>
       <View>
-        <Icon name={'Bookmark'} color={Colors.WHITE} size={20} />
+        <TouchableOpacity>
+          <Icon name={'Bookmark'} color={Colors.WHITE} size={20} />
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -1,6 +1,6 @@
 import {Fonts} from '../../../constants/Fonts';
 import {Colors} from '../../../constants/Colors';
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   centralView: {
@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     height: '100%',
-    // width: Dimensions.get('window').width - 300,
   },
   press: {
     height: '100%',
@@ -40,14 +39,12 @@ export const styles = StyleSheet.create({
     color: Colors.WHITE,
     fontSize: 14,
     lineHeight: 16,
-    // paddingTop: 17,
   },
   link: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,
     color: Colors.PEARL_PURPLE,
     fontSize: 12,
     lineHeight: 16,
-    // paddingTop: 2,
   },
   menuList: {},
   item: {
