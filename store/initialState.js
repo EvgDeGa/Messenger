@@ -150,10 +150,11 @@ const initialState = {
       holderPhoto: require('../src/assets/img/postPhotoProfile/p1.png'),
       postDate: '1h ago',
       like: '8998',
-      postText: 'Writing code is not so bad!',
+      postText: null,
       postPhoto: [
         {photo: require('../src/assets/img/postPhoto/1.png')},
-        {photo: require('../src/assets/img/postPhoto/1.png')},
+        {photo: require('../src/assets/img/postPhoto/11.png')},
+        {photo: require('../src/assets/img/postPhoto/12.png')},
       ],
       commentList: [
         {
@@ -247,6 +248,17 @@ const initialState = {
       like: '238',
       postText: null,
       postPhoto: [{photo: require('../src/assets/img/postPhoto/3.png')}],
+      commentList: null,
+    },
+    {
+      id: '5',
+      postHolder: 'Kat Williams',
+      holderPhoto: require('../src/assets/img/postPhotoProfile/p1.png'),
+      postDate: '1h ago',
+      like: '238',
+      postText:
+        'User experience design for the Web (and its siblings, interaction design, UI design, et al) has traditionally been a deliverables-based practice. Wireframes, site maps, flow diagrams, content inventories, taxonomies, mockups and the ever-sacred specifications document (aka “The Spec”) helped define the practice in its infancy. These deliverables crystallized the value that the UX discipline brought to an organization.',
+      postPhoto: [{photo: require('../src/assets/img/postPhoto/1.png')}],
       commentList: null,
     },
   ],

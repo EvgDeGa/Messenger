@@ -1,4 +1,5 @@
 import React from 'react';
+import Swiper from 'react-native-swiper';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 
 import {styles} from './MesPostStyle';
@@ -9,6 +10,37 @@ import PostFooter from '../MesPostFooter';
 import PostHeader from '../MesPostHeader';
 
 export const Post = props => {
+  const photoSwiper = () => {
+    if (props.data.postPhoto.length > 1) {
+      return (
+        <Swiper
+          style={styles.slide}
+          dot={<View style={styles.dot} />}
+          activeDot={<View style={styles.activeDot} />}
+          paginationStyle={{
+            bottom: 0,
+          }}>
+          {props.data.postPhoto.map(postPhoto => {
+            return (
+              <View key={new Date().getTime()} style={styles.imageContainer}>
+                <Image style={styles.imagePost} source={postPhoto.photo} />
+              </View>
+            );
+          })}
+        </Swiper>
+      );
+    } else {
+      return (
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.imagePost}
+            source={props.data.postPhoto[0].photo}
+          />
+        </View>
+      );
+    }
+  };
+
   return (
     <View>
       <View style={styles.container}>
@@ -27,14 +59,7 @@ export const Post = props => {
         {props.data.postPhoto && props.data.postText ? (
           <View style={styles.spaceBetwennContent} />
         ) : null}
-        {props.data.postPhoto ? (
-          <View style={styles.imageContainer}>
-            <Image
-              style={styles.imagePost}
-              source={props.data.postPhoto[0].photo}
-            />
-          </View>
-        ) : null}
+        {props.data.postPhoto ? photoSwiper() : null}
       </View>
       <PostFooter
         like={props.data.like}
