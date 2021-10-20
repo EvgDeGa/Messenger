@@ -12,6 +12,7 @@ import {Colors} from '../../constants/Colors';
 import {styles} from './ProfileStyle';
 
 const Profile = props => {
+  console.log(props.data);
   const [moreDetails, setMoreDetails] = useState(false);
   const [moreAction, setMoreAction] = useState(false);
 

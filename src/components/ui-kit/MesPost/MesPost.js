@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Swiper from 'react-native-swiper';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 
@@ -10,8 +10,13 @@ import PostFooter from '../MesPostFooter';
 import PostHeader from '../MesPostHeader';
 
 export const Post = props => {
+  const [photo, setPhoto] = useState(
+    props.postPhoto.filter(photo => photo.postId == props.postInformation.id),
+  );
+
+  console.log(photo);
   const photoSwiper = () => {
-    if (props.data.postPhoto.length > 1) {
+    if (photo.length > 1) {
       return (
         <Swiper
           style={styles.slide}
@@ -20,22 +25,20 @@ export const Post = props => {
           paginationStyle={{
             bottom: 0,
           }}>
-          {props.data.postPhoto.map(postPhoto => {
+          {photo.map(photoItem => {
             return (
               <View key={new Date().getTime()} style={styles.imageContainer}>
-                <Image style={styles.imagePost} source={postPhoto.photo} />
+                <Image style={styles.imagePost} source={photoItem.photo} />
               </View>
             );
           })}
         </Swiper>
       );
-    } else {
+    }
+    if (photo.length == 1) {
       return (
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.imagePost}
-            source={props.data.postPhoto[0].photo}
-          />
+          <Image style={styles.imagePost} source={photo[0].photo} />
         </View>
       );
     }
@@ -45,7 +48,7 @@ export const Post = props => {
     <View>
       <View style={styles.container}>
         <TouchableOpacity onPress={props.onPress}>
-          <PostHeader data={props.data} />
+          <PostHeader data={props.postInformation} />
         </TouchableOpacity>
         <TouchableOpacity>
           <Icon name={'DotsVertical'} color={Colors.PEARL_PURPLE} size={20} />
@@ -53,17 +56,19 @@ export const Post = props => {
       </View>
 
       <View style={styles.postContent}>
-        {props.data.postText ? (
-          <Text style={[styles.textPost]}>{props.data.postText}</Text>
+        {props.postInformation.postText ? (
+          <Text style={[styles.textPost]}>
+            {props.postInformation.postText}
+          </Text>
         ) : null}
-        {props.data.postPhoto && props.data.postText ? (
+        {photo && props.postInformation.postText ? (
           <View style={styles.spaceBetwennContent} />
         ) : null}
-        {props.data.postPhoto ? photoSwiper() : null}
+        {photo ? photoSwiper() : null}
       </View>
       <PostFooter
-        like={props.data.like}
-        commentList={props.data.commentList}
+        postId={props.postInformation.id}
+        like={props.postInformation.like}
         onOpen={props.onPress}
       />
       <View style={styles.footerLine} />

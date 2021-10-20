@@ -19,16 +19,27 @@ import CommentList from '../../ui-kit/MesCommentList';
 import numberWithComma from '../../Functions/numberWithComma';
 import numberOfComments from '../../Functions/numberOfComments';
 
-export const OpenPost = ({visible, item, onCancel}) => {
+export const OpenPost = props => {
+  const [photo, setPhoto] = useState(
+    props.postPhoto.filter(photo => photo.postId == props.postInformation.id),
+  );
+  const [comments, setComments] = useState(
+    props.replyComment
+      .filter(comment => comment.postId == props.item.id)
+      .concat(
+        props.commentList.filter(comment => comment.postId == props.item.id),
+      ),
+  );
+
   return (
-    <Modal animationType="fade" transparent visible={visible}>
-      <View style={styles.centralView} onPress={onCancel}>
-        <BackHeader back={() => onCancel()} text={'Запись'} />
+    <Modal animationType="fade" transparent visible={props.visible}>
+      <View style={styles.centralView}>
+        <BackHeader back={() => props.onCancel()} text={'Запись'} />
         <ScrollView>
-          <PostHeader data={item} />
+          <PostHeader data={props.item} />
           <View style={styles.content}>
-            {item.postPhoto
-              ? item.postPhoto.map(postPhoto => {
+            {photo.length
+              ? photo.map(postPhoto => {
                   return (
                     <View
                       key={new Date().getTime()}
@@ -38,8 +49,8 @@ export const OpenPost = ({visible, item, onCancel}) => {
                   );
                 })
               : null}
-            {item.postText ? (
-              <Text style={styles.text}>{item.postText}</Text>
+            {props.item.postText ? (
+              <Text style={styles.text}>{props.item.postText}</Text>
             ) : null}
           </View>
           <View style={styles.interactionBlock}>
@@ -47,20 +58,20 @@ export const OpenPost = ({visible, item, onCancel}) => {
               <TouchableOpacity>
                 <Icon name={'Like'} color={Colors.WHITE} size={20} />
               </TouchableOpacity>
-              <Text style={styles.likeText}>{numberWithComma(item.like)}</Text>
+              <Text style={styles.likeText}>
+                {numberWithComma(props.item.like)}
+              </Text>
             </View>
             <TouchableOpacity>
               <Icon name={'Bookmark'} size={18} color={Colors.WHITE} />
             </TouchableOpacity>
           </View>
           <Text style={styles.numberOfComment}>
-            {numberOfComments(item.commentList)}
+            {comments.length}
             {' комментариев'}
           </Text>
           <View style={styles.line} />
-          {item.commentList ? (
-            <CommentList commentList={item.commentList} />
-          ) : null}
+          {comments.length ? <CommentList commentList={comments} /> : null}
         </ScrollView>
         <View style={styles.inputContainer}>
           <View style={styles.commentInput}>

@@ -18,7 +18,7 @@ export const Home = props => {
   const renderItem = ({item}) => {
     return (
       <Post
-        data={item}
+        postInformation={item}
         onPress={() => {
           setSelectedItem(item);
           setSelectedId(item.id);
@@ -47,7 +47,7 @@ export const Home = props => {
         </View>
       </View>
       <FlatList
-        data={props.data.postInformation}
+        data={props.postInformation}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selectedId}
@@ -57,7 +57,7 @@ export const Home = props => {
         visible={menu}
         onCancel={() => setMenu(false)}
         navigation={props.navigation}
-        selfInf={props.data.selfInf}
+        selfInf={props.selfInf}
       />
       {selectedItem ? (
         <OpenPost

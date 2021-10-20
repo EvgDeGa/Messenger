@@ -1,3 +1,14 @@
 import {OpenPost} from './OpenPost';
+import {connect} from 'react-redux';
 
-export default OpenPost;
+const mapStateToProps = state => ({
+  selfInf: state.selfInf,
+  postInformation: state.postInformation,
+  replyComment: state.replyComment,
+  commentList: state.commentList,
+  postPhoto: state.postPhoto,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpenPost);
