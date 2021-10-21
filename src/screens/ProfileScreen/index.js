@@ -2,7 +2,9 @@ import Profile from './Profile';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
-  data: state,
+  selfInf: state.selfInf,
+  gallary: state.gallary,
+  social: state.social,
 });
 
 const mapDispatchToProps = dispatch => ({});

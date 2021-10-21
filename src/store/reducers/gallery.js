@@ -1,5 +1,3 @@
-// import { } from '../actions/PageActions'
-
 const initialState = [
   {
     id: '1',

@@ -43,17 +43,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 11,
   },
-  numberOfComment: {
-    fontFamily: Fonts.HK_GROTESK_BOLD,
-    fontSize: 14,
-    lineHeight: 16,
-    color: Colors.WHITE,
-  },
-  line: {
-    borderBottomWidth: 1,
-    borderColor: Colors.PURPLE_BLUE,
-    marginVertical: 17,
-  },
+
   inputContainer: {
     paddingTop: 4,
     paddingBottom: 27,

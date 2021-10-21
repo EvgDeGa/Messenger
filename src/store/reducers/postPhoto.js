@@ -1,11 +1,5 @@
-import {ADD_COMMENT, LIKE_COMMENT} from '../actions/comment';
-
 export function postPhotoReducer(state = initialState, action) {
   switch (action.type) {
-    case LIKE_COMMENT:
-      return action.payLoad;
-    case ADD_COMMENT:
-      return action.payLoad;
     default:
       return state;
   }

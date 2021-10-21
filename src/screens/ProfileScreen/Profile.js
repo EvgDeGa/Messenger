@@ -12,11 +12,9 @@ import {Colors} from '../../constants/Colors';
 import {styles} from './ProfileStyle';
 
 const Profile = props => {
-  console.log(props.data);
   const [moreDetails, setMoreDetails] = useState(false);
   const [moreAction, setMoreAction] = useState(false);
-
-  const data = props.data;
+  console.log(props.followers);
 
   return (
     <SafeAreaView style={styles.profileContainer}>
@@ -30,15 +28,15 @@ const Profile = props => {
           <View style={styles.personalInformation}>
             <Image
               style={styles.profileImage}
-              source={data.selfInf.podilePhoto}
+              source={props.selfInf.podilePhoto}
             />
-            <Text style={styles.name}>{data.selfInf.name}</Text>
-            <Text style={styles.link}>{data.selfInf.link}</Text>
+            <Text style={styles.name}>{props.selfInf.name}</Text>
+            <Text style={styles.link}>{props.selfInf.link}</Text>
             <Text style={styles.countryCity}>
-              {data.selfInf.country}, {data.selfInf.city}
+              {props.selfInf.country}, {props.selfInf.city}
             </Text>
             <Text style={styles.workpalce}>
-              Место работы: {data.selfInf.workpalce}
+              Место работы: {props.selfInf.workpalce}
             </Text>
           </View>
           <TouchableOpacity
@@ -48,8 +46,8 @@ const Profile = props => {
           </TouchableOpacity>
         </View>
         <View style={styles.profileInformation_secondLine}>
-          <TextWithNumber text={'Followers'} number={data.followers} />
-          <TextWithNumber text={'Following'} number={data.following} />
+          <TextWithNumber text={'Followers'} number={props.selfInf.followers} />
+          <TextWithNumber text={'Following'} number={props.selfInf.following} />
           <TransparentButton
             text={'Подробнее'}
             onClick={() => setMoreDetails(true)}
@@ -60,15 +58,15 @@ const Profile = props => {
       <View style={styles.gallery}>
         <View style={styles.gallery_Text}>
           <Text style={styles.photoText}>Фотографии</Text>
-          <Text style={styles.photoNumber}>{data.gallary.length}</Text>
+          <Text style={styles.photoNumber}>{props.gallary.length}</Text>
         </View>
-        <ProfilePhotoScroll data={data.gallary} />
+        <ProfilePhotoScroll data={props.gallary} />
       </View>
       <View style={styles.footerBlock} />
       <MoreAction visible={moreAction} onCancel={() => setMoreAction(false)} />
       <MoreDetails
-        selfInf={data.selfInf}
-        social={data.social}
+        selfInf={props.selfInf}
+        social={props.social}
         visible={moreDetails}
         onCancel={() => setMoreDetails(false)}
       />

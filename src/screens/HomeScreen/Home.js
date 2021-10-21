@@ -21,7 +21,6 @@ export const Home = props => {
         postInformation={item}
         onPress={() => {
           setSelectedItem(item);
-          setSelectedId(item.id);
           setOpenPost(true);
         }}
       />

@@ -1,14 +1,19 @@
 import {OpenPost} from './OpenPost';
 import {connect} from 'react-redux';
+import {addComment, l} from '../../../store/actions/commentAction';
+import {likePost} from '../../../store/actions/postAction';
 
 const mapStateToProps = state => ({
   selfInf: state.selfInf,
   postInformation: state.postInformation,
-  replyComment: state.replyComment,
-  commentList: state.commentList,
   postPhoto: state.postPhoto,
 });
 
-const mapDispatchToProps = dispatch => ({});
-
+const mapDispatchToProps = dispatch => {
+  return {
+    addComment: (text, selfInf, postId) =>
+      dispatch(addComment(text, selfInf, postId)),
+    likePost: (like, id) => dispatch(likePost(like, id)),
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(OpenPost);

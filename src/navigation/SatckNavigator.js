@@ -5,6 +5,7 @@ import Settings from '../screens/SettingsScreen';
 import Profile from '../screens/ProfileScreen';
 import Friends from '../screens/FriendsScreen';
 import Search from '../screens/SearchScreen';
+import HomeContainer from '../screens/HomeScreen';
 import Home from '../screens/HomeScreen';
 
 const HomeStackNavigator = createNativeStackNavigator();

@@ -14,7 +14,6 @@ export const Post = props => {
     props.postPhoto.filter(photo => photo.postId == props.postInformation.id),
   );
 
-  console.log(photo);
   const photoSwiper = () => {
     if (photo.length > 1) {
       return (

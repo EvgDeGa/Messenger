@@ -1,12 +1,15 @@
 import {PostFooter} from './MesPostFooter';
 import {connect} from 'react-redux';
+import {likePost} from '../../../store/actions/postAction';
 
 const mapStateToProps = state => ({
-  replyComment: state.replyComment,
+  //   replyComment: state.replyComment,
   commentList: state.commentList,
   postInformation: state.postInformation,
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => {
+  return {likePost: (like, id) => dispatch(likePost(like, id))};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostFooter);

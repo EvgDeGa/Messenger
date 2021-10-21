@@ -1,5 +1,3 @@
-// import { } from '../actions/PageActions'
-
 const initialState = {
   name: 'Kat Williams',
   link: '@Williams',
@@ -10,6 +8,8 @@ const initialState = {
   status: 'They never ask people to do things they wouldn’t do themselves.',
   workpalce: 'Artist by Passion!',
   studies: 'ВГУЮ в г. Санкт-Петербург',
+  followers: '2467',
+  following: '1589',
 };
 
 export function selfInfReducer(state = initialState, action) {

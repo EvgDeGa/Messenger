@@ -9,20 +9,17 @@ import numberWithComma from '../../Functions/numberWithComma';
 import numberOfComments from '../../Functions/numberOfComments';
 
 export const PostFooter = props => {
-  const [comments, setComments] = useState(
-    props.replyComment
-      .filter(comment => comment.postId == props.postId)
-      .concat(
-        props.commentList.filter(comment => comment.postId == props.postId),
-      ),
+  const comments = props.commentList.filter(
+    comment => comment.postId == props.postId,
   );
 
-  console.log(comments.length);
+  // console.log(comments.length);
   return (
     <View style={styles.container}>
       <View style={styles.likeComment}>
         <View style={styles.like}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.likePost(props.like, props.postId)}>
             <Icon name={'Like'} color={Colors.WHITE} size={20} />
           </TouchableOpacity>
           <Text style={styles.text}>{numberWithComma(props.like)}</Text>
@@ -32,7 +29,7 @@ export const PostFooter = props => {
             <TouchableOpacity onPress={() => props.onOpen()}>
               <Icon name={'Chat'} color={Colors.WHITE} size={20} />
             </TouchableOpacity>
-            <Text style={styles.text}>{comments.length}</Text>
+            <Text style={styles.text}>{numberOfComments(comments)}</Text>
           </View>
         ) : null}
       </View>

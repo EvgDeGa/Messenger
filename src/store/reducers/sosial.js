@@ -1,5 +1,3 @@
-// import { } from '../actions/PageActions'
-
 const initialState = {
   arrow: 'http://t.me/durov',
   twitter: 'Durov',

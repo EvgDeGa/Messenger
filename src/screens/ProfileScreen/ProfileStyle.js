@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 30,
   },
-  profuleImage: {
+  profileImage: {
     width: 95,
     height: 95,
   },

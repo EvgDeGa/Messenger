@@ -7,15 +7,11 @@ import {Colors} from '../../../constants/Colors';
 import Icon from '../../Icon';
 import CommentContent from '../MesCommentContent';
 
-export const Comment = ({item}) => {
+export const Comment = props => {
+  const item = props.item;
   const [selectedId, setSelectedId] = useState(null);
-
   const subCommentPadding = item.parent ? 53 : 0;
   const imageSize = item.parent ? 30 : 43;
-
-  const renderItem = ({item}) => {
-    return <Comment item={item} reply={() => onPress} />;
-  };
 
   return (
     <View style={[styles.commentContainer, {paddingLeft: subCommentPadding}]}>
@@ -23,7 +19,7 @@ export const Comment = ({item}) => {
         <View style={styles.image}>
           <Image
             style={{width: imageSize, height: imageSize}}
-            source={require('../../../../src/assets/img/ProfileImage.png')}
+            source={item.holderPhoto}
           />
         </View>
         <View style={styles.commentBody}>
@@ -37,20 +33,22 @@ export const Comment = ({item}) => {
           </View>
         </View>
         <View style={styles.likeContainer}>
-          <TouchableOpacity onPress={() => console.log('like')}>
+          <TouchableOpacity
+            onPress={() => {
+              props.likeComment(item.like, item.id, item.parent);
+            }}>
             <Icon name={'Like'} size={16} color={Colors.WHITE} />
           </TouchableOpacity>
           <Text style={styles.likeText}>{item.like}</Text>
         </View>
       </View>
-      {item.reply && item.reply.length ? (
-        <FlatList
-          data={item.reply}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          extraData={selectedId}
-        />
-      ) : null}
+      <View>
+        {item.reply && item.reply.length
+          ? item.reply.map(comment => {
+              return <Comment {...props} item={comment} />;
+            })
+          : null}
+      </View>
     </View>
   );
 };
