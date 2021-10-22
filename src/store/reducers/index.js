@@ -7,17 +7,14 @@ import {postInformationReducer} from './postInformation';
 import {gallaryReducer} from './gallery';
 import {postPhotoReducer} from './postPhoto';
 import {commentListReducer} from './commentList';
-import {replyCommentReducer} from './replyComment';
 
 export const rootReducer = combineReducers({
   selfInf: selfInfReducer,
   social: socialReducer,
-
   friends: friendsReducer,
   community: communityReducer,
   postInformation: postInformationReducer,
   gallary: gallaryReducer,
   postPhoto: postPhotoReducer,
   commentList: commentListReducer,
-  // replyComment: replyCommentReducer,
 });

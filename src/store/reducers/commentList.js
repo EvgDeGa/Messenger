@@ -1,4 +1,4 @@
-import {ADD_COMMENT, LIKE_COMMENT} from '../actions/commentAction';
+import {ADD_COMMENT, LIKE_COMMENT} from '../constants/constants';
 
 export function commentListReducer(state = initialState, action) {
   switch (action.type) {

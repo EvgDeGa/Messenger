@@ -25,7 +25,6 @@ export const Friends = props => {
           numColumns={1}
         />
       </View>
-      {/* <View style={styles.footerBlock} /> */}
     </SafeAreaView>
   );
 };

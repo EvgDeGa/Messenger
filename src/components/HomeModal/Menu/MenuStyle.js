@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   centralView: {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: Colors.BlACKOUT,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',

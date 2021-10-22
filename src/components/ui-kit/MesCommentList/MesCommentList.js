@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {FlatList, View, Text} from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
 import {styles} from './MesCommentListStyle';
-import numberOfComments from '../../Functions/numberOfComments';
+import numberOfComments from '../../../utils/Functions/numberOfComments';
 
 import Comment from '../MesComment';
 
@@ -36,13 +36,7 @@ export const CommentList = props => {
       </Text>
       <View style={styles.line} />
       {comments.map(comment => {
-        return (
-          <Comment
-            key={new Date().getTime().toString()}
-            item={comment}
-            reply={() => onPress}
-          />
-        );
+        return <Comment item={comment} reply={() => onPress} />;
       })}
     </View>
   );

@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 
 import {styles} from './MestextWithNumberStyle';
 
-import numberWithComma from '../../Functions/numberWithComma';
+import numberWithComma from '../../../utils/Functions/numberWithComma';
 
 export const TextWithNumber = ({text, number}) => {
   return (

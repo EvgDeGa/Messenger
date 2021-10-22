@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 
 import {styles} from './MesPostFooterStyle';
 import {Colors} from '../../../constants/Colors';
 
 import Icon from '../../Icon';
-import numberWithComma from '../../Functions/numberWithComma';
-import numberOfComments from '../../Functions/numberOfComments';
+import numberWithComma from '../../../utils/Functions/numberWithComma';
+import numberOfComments from '../../../utils/Functions/numberOfComments';
 
 export const PostFooter = props => {
   const comments = props.commentList.filter(
     comment => comment.postId == props.postId,
   );
 
-  // console.log(comments.length);
   return (
     <View style={styles.container}>
       <View style={styles.likeComment}>

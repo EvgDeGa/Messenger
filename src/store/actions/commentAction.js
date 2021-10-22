@@ -1,5 +1,4 @@
-export const ADD_COMMENT = 'ADD_COMMENT';
-export const LIKE_COMMENT = 'LIKE_COMMENT';
+import {ADD_COMMENT, LIKE_COMMENT} from '../constants/constants';
 
 export const addComment = (text, selfInf, postId) => {
   const comment = {

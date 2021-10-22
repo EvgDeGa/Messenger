@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Swiper from 'react-native-swiper';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 
@@ -10,8 +10,8 @@ import PostFooter from '../MesPostFooter';
 import PostHeader from '../MesPostHeader';
 
 export const Post = props => {
-  const [photo, setPhoto] = useState(
-    props.postPhoto.filter(photo => photo.postId == props.postInformation.id),
+  const photo = props.postPhoto.filter(
+    photo => photo.postId == props.postInformation.id,
   );
 
   const photoSwiper = () => {

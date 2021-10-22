@@ -1,4 +1,4 @@
-import {LIKE_POST} from '../actions/postAction';
+import {LIKE_POST} from '../constants/constants';
 
 export function postInformationReducer(state = initialState, action) {
   function requiredItem(element, index, array) {

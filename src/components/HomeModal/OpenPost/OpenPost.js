@@ -16,7 +16,7 @@ import Icon from '../../Icon';
 import BackHeader from '../../ui-kit/MesBackHeader';
 import PostHeader from '../../ui-kit/MesPostHeader';
 import CommentList from '../../ui-kit/MesCommentList';
-import numberWithComma from '../../Functions/numberWithComma';
+import numberWithComma from '../../../utils/Functions/numberWithComma';
 
 export const OpenPost = props => {
   const [text, setText] = useState('');

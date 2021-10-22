@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {likePost} from '../../../store/actions/postAction';
 
 const mapStateToProps = state => ({
-  //   replyComment: state.replyComment,
   commentList: state.commentList,
   postInformation: state.postInformation,
 });

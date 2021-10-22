@@ -1,4 +1,4 @@
-export const LIKE_POST = 'LIKE_POST';
+import {LIKE_POST} from '../constants/constants';
 
 export const likePost = (like, id) => {
   return {
