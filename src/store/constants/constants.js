@@ -7,3 +7,6 @@ export const LIKE_POST = 'LIKE_POST';
 
 //auth
 export const AUTH = 'AUTH';
+
+//friends
+export const GET_FRIENDS = 'GET_FRIENDS';

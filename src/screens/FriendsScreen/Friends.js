@@ -1,5 +1,11 @@
-import React, {useState} from 'react';
-import {FlatList, View, SafeAreaView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  FlatList,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 
 import {styles} from './FriendsStyle';
 
@@ -18,7 +24,7 @@ export const Friends = props => {
       <View style={styles.container}>
         <BackHeader back={() => props.navigation.goBack()} text={'Друзья'} />
         <FlatList
-          data={props.data}
+          data={props.friends.items}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           extraData={selectedId}

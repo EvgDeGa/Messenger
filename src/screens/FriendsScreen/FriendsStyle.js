@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
+    flex: 1,
+
     paddingHorizontal: 16,
     backgroundColor: Colors.ULTRAMARINE_BLUE,
   },

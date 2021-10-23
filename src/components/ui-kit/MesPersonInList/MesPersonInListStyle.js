@@ -8,7 +8,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 12,
   },
+
   image: {
+    borderRadius: 22,
     width: 43,
     height: 43,
   },

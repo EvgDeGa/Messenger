@@ -12,10 +12,32 @@ import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 import {Colors} from '../../../constants/Colors';
 import {styles} from './MenuStyle';
 
-export const Menu = ({visible, onCancel, navigation, selfInf}) => {
+export const Menu = props => {
+  async function initFriends() {
+    await fetch(
+      'https://api.vk.com/method/friends.get?user_id=' +
+        props.auth.userId +
+        '&order=hints&fields=city,domain,photo_50&access_token=' +
+        props.auth.accessToken +
+        '&v=5.131',
+      {
+        method: 'GET',
+      },
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          props.getFriends(result.response);
+        },
+        error => {
+          console.log('Ошибка при получении данных...');
+        },
+      );
+  }
+
   return (
-    <Modal animationType="fade" transparent visible={visible}>
-      <View style={styles.centralView} onPress={onCancel}>
+    <Modal animationType="fade" transparent visible={props.visible}>
+      <View style={styles.centralView} onPress={props.onCancel}>
         <View style={styles.container}>
           <View style={styles.personalInformation}>
             <Image
@@ -23,16 +45,16 @@ export const Menu = ({visible, onCancel, navigation, selfInf}) => {
               source={require('../../../../src/assets/img/ProfileImage.png')}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.name}>{selfInf.name}</Text>
-              <Text style={styles.link}>{selfInf.link}</Text>
+              <Text style={styles.name}>{props.selfInf.name}</Text>
+              <Text style={styles.link}>{props.selfInf.link}</Text>
             </View>
           </View>
           <View style={styles.menuList}>
             <View style={styles.item}>
               <TouchableOpacity
                 onPress={() => {
-                  onCancel();
-                  navigation.navigate('Profile');
+                  props.onCancel();
+                  props.navigation.navigate('Profile');
                 }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
@@ -46,8 +68,9 @@ export const Menu = ({visible, onCancel, navigation, selfInf}) => {
             <View style={styles.item}>
               <TouchableOpacity
                 onPress={() => {
-                  onCancel();
-                  navigation.navigate('Friends');
+                  props.onCancel();
+                  initFriends();
+                  props.navigation.navigate('Friends');
                 }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
@@ -61,8 +84,8 @@ export const Menu = ({visible, onCancel, navigation, selfInf}) => {
             <View style={styles.item}>
               <TouchableOpacity
                 onPress={() => {
-                  onCancel();
-                  navigation.navigate('Search');
+                  props.onCancel();
+                  props.navigation.navigate('Search');
                 }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
@@ -76,8 +99,8 @@ export const Menu = ({visible, onCancel, navigation, selfInf}) => {
             <View style={styles.item}>
               <TouchableOpacity
                 onPress={() => {
-                  onCancel();
-                  navigation.navigate('Settings');
+                  props.onCancel();
+                  props.navigation.navigate('Settings');
                 }}>
                 <IconWithDescription
                   iconColor={Colors.WHITE}
@@ -90,7 +113,7 @@ export const Menu = ({visible, onCancel, navigation, selfInf}) => {
             </View>
           </View>
         </View>
-        <Pressable style={styles.press} onPress={onCancel} />
+        <Pressable style={styles.press} propsonPress={props.onCancel} />
       </View>
     </Modal>
   );
