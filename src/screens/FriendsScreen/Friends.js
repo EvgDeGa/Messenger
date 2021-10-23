@@ -24,7 +24,7 @@ export const Friends = props => {
       <View style={styles.container}>
         <BackHeader back={() => props.navigation.goBack()} text={'Друзья'} />
         <FlatList
-          data={props.friends.items}
+          data={props.friends}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           extraData={selectedId}

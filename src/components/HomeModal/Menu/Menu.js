@@ -35,6 +35,28 @@ export const Menu = props => {
       );
   }
 
+  async function initGroup() {
+    await fetch(
+      'https://api.vk.com/method/groups.get?user_id=' +
+        props.auth.userId +
+        '&extended=1&access_token=' +
+        props.auth.accessToken +
+        '&v=5.131',
+      {
+        method: 'GET',
+      },
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          props.getGroup(result.response);
+        },
+        error => {
+          console.log('Ошибка при получении данных...');
+        },
+      );
+  }
+
   return (
     <Modal animationType="fade" transparent visible={props.visible}>
       <View style={styles.centralView} onPress={props.onCancel}>
@@ -85,6 +107,8 @@ export const Menu = props => {
               <TouchableOpacity
                 onPress={() => {
                   props.onCancel();
+                  initFriends();
+                  initGroup();
                   props.navigation.navigate('Search');
                 }}>
                 <IconWithDescription

@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {selfInfReducer} from './selfInf';
 import {socialReducer} from './sosial';
 import {friendsReducer} from './friends';
-import {communityReducer} from './community';
+import {groupReducer} from './group';
 import {postInformationReducer} from './postInformation';
 import {gallaryReducer} from './gallery';
 import {postPhotoReducer} from './postPhoto';
@@ -14,7 +14,7 @@ export const rootReducer = combineReducers({
   selfInf: selfInfReducer,
   social: socialReducer,
   friends: friendsReducer,
-  community: communityReducer,
+  group: groupReducer,
   postInformation: postInformationReducer,
   gallary: gallaryReducer,
   postPhoto: postPhotoReducer,

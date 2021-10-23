@@ -16,9 +16,10 @@ import PersonInList from '../../components/ui-kit/MesPersonInList';
 
 export const Search = props => {
   const [selectedId, setSelectedId] = useState(null);
-  const [items, setItems] = useState(props.community.concat(props.friends));
+  const [items, setItems] = useState(props.group.concat(props.friends));
   const [data, setData] = useState(items);
   const [check, setCheck] = useState(1);
+  console.log(items);
 
   const renderItem = ({item}) => {
     return <PersonInList item={item} />;
@@ -40,8 +41,8 @@ export const Search = props => {
     setCheck(n);
     switch (n) {
       case 1:
-        setItems(props.community.concat(props.friends));
-        setData(props.community.concat(props.friends));
+        setItems(props.group.concat(props.friends));
+        setData(props.group.concat(props.friends));
         break;
 
       case 2:
@@ -50,8 +51,8 @@ export const Search = props => {
         break;
 
       case 3:
-        setItems(props.community);
-        setData(props.community);
+        setItems(props.group);
+        setData(props.group);
         break;
     }
   };
