@@ -5,8 +5,8 @@ import Settings from '../screens/SettingsScreen';
 import Profile from '../screens/ProfileScreen';
 import Friends from '../screens/FriendsScreen';
 import Search from '../screens/SearchScreen';
-import HomeContainer from '../screens/HomeScreen';
 import Home from '../screens/HomeScreen';
+import Auth from '../screens/AuthScreen';
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -22,6 +22,21 @@ export const HomeNavigator = () => {
       <HomeStackNavigator.Screen name="Friends" component={Friends} />
       <HomeStackNavigator.Screen name="Search" component={Search} />
       <HomeStackNavigator.Screen name="Settings" component={Settings} />
+      <HomeStackNavigator.Screen name="Auth" component={Auth} />
     </HomeStackNavigator.Navigator>
+  );
+};
+
+const AuthStackNavigator = createNativeStackNavigator();
+
+export const AuthNavigator = () => {
+  return (
+    <AuthStackNavigator.Navigator
+      initialRouteName="Auth"
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <AuthStackNavigator.Screen name="Auth" component={Auth} />
+    </AuthStackNavigator.Navigator>
   );
 };

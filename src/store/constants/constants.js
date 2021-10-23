@@ -4,3 +4,6 @@ export const LIKE_COMMENT = 'LIKE_COMMENT';
 
 //post
 export const LIKE_POST = 'LIKE_POST';
+
+//auth
+export const AUTH = 'AUTH';

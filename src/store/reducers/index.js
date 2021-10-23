@@ -7,8 +7,10 @@ import {postInformationReducer} from './postInformation';
 import {gallaryReducer} from './gallery';
 import {postPhotoReducer} from './postPhoto';
 import {commentListReducer} from './commentList';
+import {authReducer} from './auth';
 
 export const rootReducer = combineReducers({
+  auth: authReducer,
   selfInf: selfInfReducer,
   social: socialReducer,
   friends: friendsReducer,

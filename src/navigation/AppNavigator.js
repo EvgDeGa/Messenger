@@ -1,12 +1,15 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-
-import {HomeNavigator} from './SatckNavigator';
+import {useSelector} from 'react-redux';
+import {HomeNavigator, AuthNavigator} from './SatckNavigator';
 
 const AppNavigator = props => {
+  const isAuth = useSelector(state => state.auth.isAuth);
+
   return (
     <NavigationContainer>
-      <HomeNavigator />
+      {isAuth && <HomeNavigator />}
+      {!isAuth && <AuthNavigator />}
     </NavigationContainer>
   );
 };
