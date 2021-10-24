@@ -4,6 +4,7 @@ import {View, SafeAreaView, TouchableOpacity, FlatList} from 'react-native';
 import {styles} from './HomeStyle';
 import {Colors} from '../../constants/Colors';
 
+import {Http} from '../../store/http';
 import Icon from '../../components/Icon';
 import Post from '../../components/ui-kit/MesPost';
 import Menu from '../../components/HomeModal/Menu';
@@ -14,6 +15,17 @@ export const Home = props => {
   const [openPost, setOpenPost] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  async function initSelfInf() {
+    const data = await Http.get(
+      'https://api.vk.com/method/users.get?user_ids=' +
+        props.auth.userId +
+        '&fields=bdate, city, country, home_town, has_photo, photo_100, domain,  site, education, universities, schools, status,  followers_count, common_count,  nickname, screen_name, is_friend, friend_status, career&access_token=' +
+        props.auth.accessToken +
+        '&v=5.131',
+    );
+    props.getSelfInf(data);
+  }
 
   const renderItem = ({item}) => {
     return (
@@ -33,7 +45,10 @@ export const Home = props => {
         <TouchableOpacity
           style={styles.headerMenu}
           activeOpacity={0}
-          onPress={() => setMenu(true)}>
+          onPress={() => {
+            initSelfInf();
+            setMenu(true);
+          }}>
           <Icon name={'Menu'} color={Colors.WHITE} size={22} />
         </TouchableOpacity>
         <View style={styles.headerRigth}>
@@ -56,7 +71,6 @@ export const Home = props => {
         visible={menu}
         onCancel={() => setMenu(false)}
         navigation={props.navigation}
-        selfInf={props.selfInf}
       />
       {selectedItem ? (
         <OpenPost

@@ -13,3 +13,6 @@ export const GET_FRIENDS = 'GET_FRIENDS';
 
 //friends
 export const GET_GROUP = 'GET_GROUP';
+
+//selfInf
+export const GET_SELFINF = 'GET_SELFINF';

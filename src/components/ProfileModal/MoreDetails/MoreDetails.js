@@ -37,7 +37,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Cake'}
-                text={'День рождения: ' + selfInf.birthDay}
+                text={'День рождения: ' + selfInf.bdate}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -46,7 +46,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Location'}
-                text={'Город: ' + selfInf.city}
+                text={'Город: ' + selfInf.home_town}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -55,7 +55,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Case'}
-                text={selfInf.studies}
+                text={selfInf.universities[0]}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -88,7 +88,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Instagram'}
-                text={social.instagram}
+                text={selfInf.instagram}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />

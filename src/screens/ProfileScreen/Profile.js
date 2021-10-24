@@ -28,15 +28,17 @@ const Profile = props => {
           <View style={styles.personalInformation}>
             <Image
               style={styles.profileImage}
-              source={props.selfInf.podilePhoto}
+              source={{uri: props.selfInf.photo_100}}
             />
-            <Text style={styles.name}>{props.selfInf.name}</Text>
-            <Text style={styles.link}>{props.selfInf.link}</Text>
+            <Text style={styles.name}>
+              {props.selfInf.first_name} {props.selfInf.first_name}
+            </Text>
+            <Text style={styles.link}>{props.selfInf.domain}</Text>
             <Text style={styles.countryCity}>
-              {props.selfInf.country}, {props.selfInf.city}
+              {props.selfInf.country.title}, {props.selfInf.home_town}
             </Text>
             <Text style={styles.workpalce}>
-              Место работы: {props.selfInf.workpalce}
+              Место работы: {props.selfInf.career[0]}
             </Text>
           </View>
           <TouchableOpacity
@@ -46,8 +48,14 @@ const Profile = props => {
           </TouchableOpacity>
         </View>
         <View style={styles.profileInformation_secondLine}>
-          <TextWithNumber text={'Followers'} number={props.selfInf.followers} />
-          <TextWithNumber text={'Following'} number={props.selfInf.following} />
+          <TextWithNumber
+            text={'Followers'}
+            number={props.selfInf.followers_count}
+          />
+          <TextWithNumber
+            text={'Following'}
+            number={props.selfInf.followers_count}
+          />
           <TransparentButton
             text={'Подробнее'}
             onClick={() => setMoreDetails(true)}

@@ -11,50 +11,40 @@ import {
 import IconWithDescription from '../../ui-kit/MesIconWithDescription';
 import {Colors} from '../../../constants/Colors';
 import {styles} from './MenuStyle';
+import {Http} from '../../../store/http';
 
 export const Menu = props => {
+  async function initSelfInf() {
+    const data = await Http.get(
+      'https://api.vk.com/method/users.get?user_ids=' +
+        props.auth.userId +
+        '&fields=bdate, city, country, home_town, has_photo, photo_100, domain,  site, education, universities, schools, status,  followers_count, common_count,  nickname, screen_name, is_friend, friend_status, career&access_token=' +
+        props.auth.accessToken +
+        '&v=5.131',
+    );
+    props.getSelfInf(data);
+  }
+
   async function initFriends() {
-    await fetch(
+    const data = await Http.get(
       'https://api.vk.com/method/friends.get?user_id=' +
         props.auth.userId +
         '&order=hints&fields=city,domain,photo_50&access_token=' +
         props.auth.accessToken +
         '&v=5.131',
-      {
-        method: 'GET',
-      },
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          props.getFriends(result.response);
-        },
-        error => {
-          console.log('Ошибка при получении данных...');
-        },
-      );
+    );
+    props.getFriends(data.response);
   }
 
   async function initGroup() {
-    await fetch(
+    const data = await Http.get(
       'https://api.vk.com/method/groups.get?user_id=' +
         props.auth.userId +
         '&extended=1&access_token=' +
         props.auth.accessToken +
         '&v=5.131',
-      {
-        method: 'GET',
-      },
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          props.getGroup(result.response);
-        },
-        error => {
-          console.log('Ошибка при получении данных...');
-        },
-      );
+    );
+    props.getGroup(data.response);
   }
 
   return (
@@ -64,11 +54,13 @@ export const Menu = props => {
           <View style={styles.personalInformation}>
             <Image
               style={styles.profileImage}
-              source={require('../../../../src/assets/img/ProfileImage.png')}
+              source={{uri: props.selfInf.photo_100}}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.name}>{props.selfInf.name}</Text>
-              <Text style={styles.link}>{props.selfInf.link}</Text>
+              <Text style={styles.name}>
+                {props.selfInf.first_name} {props.selfInf.first_name}
+              </Text>
+              <Text style={styles.link}>{props.selfInf.domain}</Text>
             </View>
           </View>
           <View style={styles.menuList}>
@@ -76,6 +68,7 @@ export const Menu = props => {
               <TouchableOpacity
                 onPress={() => {
                   props.onCancel();
+                  initSelfInf();
                   props.navigation.navigate('Profile');
                 }}>
                 <IconWithDescription
@@ -105,10 +98,10 @@ export const Menu = props => {
             </View>
             <View style={styles.item}>
               <TouchableOpacity
-                onPress={() => {
+                onPress={async () => {
                   props.onCancel();
-                  initFriends();
-                  initGroup();
+                  await initFriends();
+                  await initGroup();
                   props.navigation.navigate('Search');
                 }}>
                 <IconWithDescription
