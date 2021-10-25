@@ -22,10 +22,23 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 30,
   },
+  imageLoader: {
+    borderRadius: 47,
+    width: 95,
+    height: 95,
+    backgroundColor: Colors.LOADER_COLOR,
+  },
   profileImage: {
     borderRadius: 47,
     width: 95,
     height: 95,
+  },
+  nameLoader: {
+    height: 16,
+    width: 100,
+    marginTop: 17,
+    backgroundColor: Colors.LOADER_COLOR,
+    borderRadius: 8,
   },
   name: {
     fontFamily: Fonts.HK_GROTESK_BOLD,
@@ -34,6 +47,13 @@ export const styles = StyleSheet.create({
     lineHeight: 16,
     paddingTop: 17,
   },
+  linkLoader: {
+    height: 16,
+    width: 50,
+    marginTop: 6,
+    backgroundColor: Colors.LOADER_COLOR,
+    borderRadius: 8,
+  },
   link: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,
     color: Colors.PEARL_PURPLE,
@@ -41,12 +61,26 @@ export const styles = StyleSheet.create({
     lineHeight: 16,
     paddingTop: 6,
   },
+  countryCityLoader: {
+    height: 16,
+    width: 100,
+    marginTop: 28,
+    backgroundColor: Colors.LOADER_COLOR,
+    borderRadius: 8,
+  },
   countryCity: {
-    fontFamily: Fonts.HK_Grotesk_Medium,
+    fontFamily: Fonts.HK_GROTESK_MEDIUM,
     color: Colors.PEARL_PURPLE,
     fontSize: 14,
     lineHeight: 16,
     paddingTop: 28,
+  },
+  workpalceLoader: {
+    height: 20,
+    width: 150,
+    marginTop: 9,
+    backgroundColor: Colors.LOADER_COLOR,
+    borderRadius: 8,
   },
   workpalce: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,

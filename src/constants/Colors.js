@@ -8,4 +8,5 @@ export const Colors = {
   PEARL_PURPLE: '#8672BB',
   PERIWINKLE_KRAIOLA: '#C3B8E0',
   BlACKOUT: 'rgba(0, 0, 0, 0.6)',
+  LOADER_COLOR: 'grey',
 };

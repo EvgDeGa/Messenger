@@ -5,7 +5,7 @@ import {styles} from './MesProfilePhotoScrollStyle';
 
 const Item = ({item, onPress}) => (
   <TouchableOpacity onPress={onPress} style={{}}>
-    <Image style={styles.title} source={item.source} />
+    <Image style={styles.title} source={{uri: item.sizes[0].url}} />
   </TouchableOpacity>
 );
 

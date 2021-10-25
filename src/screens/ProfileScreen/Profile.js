@@ -14,7 +14,6 @@ import {styles} from './ProfileStyle';
 const Profile = props => {
   const [moreDetails, setMoreDetails] = useState(false);
   const [moreAction, setMoreAction] = useState(false);
-  console.log(props.followers);
 
   return (
     <SafeAreaView style={styles.profileContainer}>
@@ -25,22 +24,32 @@ const Profile = props => {
               <Icon name={'ArrowLeft'} size={20} color={Colors.WHITE} />
             </TouchableOpacity>
           </View>
-          <View style={styles.personalInformation}>
-            <Image
-              style={styles.profileImage}
-              source={{uri: props.selfInf.photo_100}}
-            />
-            <Text style={styles.name}>
-              {props.selfInf.first_name} {props.selfInf.first_name}
-            </Text>
-            <Text style={styles.link}>{props.selfInf.domain}</Text>
-            <Text style={styles.countryCity}>
-              {props.selfInf.country.title}, {props.selfInf.home_town}
-            </Text>
-            <Text style={styles.workpalce}>
-              Место работы: {props.selfInf.career[0]}
-            </Text>
-          </View>
+          {props.loader ? (
+            <View style={styles.personalInformation}>
+              <View style={styles.imageLoader} />
+              <View style={styles.nameLoader} />
+              <View style={styles.linkLoader} />
+              <View style={styles.countryCityLoader} />
+              <View style={styles.workpalceLoader} />
+            </View>
+          ) : (
+            <View style={styles.personalInformation}>
+              <Image
+                style={styles.profileImage}
+                source={{uri: props.selfInf.photo_100}}
+              />
+              <Text style={styles.name}>
+                {props.selfInf.first_name} {props.selfInf.first_name}
+              </Text>
+              <Text style={styles.link}>{props.selfInf.domain}</Text>
+              <Text style={styles.countryCity}>
+                {props.selfInf.country.title}, {props.selfInf.home_town}
+              </Text>
+              <Text style={styles.workpalce}>
+                Место работы: {props.selfInf.career[0]}
+              </Text>
+            </View>
+          )}
           <TouchableOpacity
             onPress={() => setMoreAction(true)}
             style={styles.icon}>
@@ -68,7 +77,7 @@ const Profile = props => {
           <Text style={styles.photoText}>Фотографии</Text>
           <Text style={styles.photoNumber}>{props.gallary.length}</Text>
         </View>
-        <ProfilePhotoScroll data={props.gallary} />
+        <ProfilePhotoScroll data={props.gallary.items} />
       </View>
       <View style={styles.footerBlock} />
       <MoreAction visible={moreAction} onCancel={() => setMoreAction(false)} />

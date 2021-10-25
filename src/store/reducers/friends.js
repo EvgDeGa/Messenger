@@ -1,4 +1,4 @@
-import {GET_FRIENDS} from '../constants/constants';
+import {FETCH_FRIENDS} from '../constants/constants';
 const initialState = {
   count: 0,
   items: [],
@@ -6,8 +6,13 @@ const initialState = {
 
 export function friendsReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_FRIENDS:
-      return {...state, count: action.count, items: action.items};
+    case FETCH_FRIENDS:
+      console.log(action.payload);
+      return {
+        ...state,
+        count: action.payload.count,
+        items: action.payload.items,
+      };
     default:
       return state;
   }

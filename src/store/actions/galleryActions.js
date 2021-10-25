@@ -1,6 +1,6 @@
 import {REQUEST_GALLERY} from '../constants/constants';
 
-export const getFriends = auth => {
+export const getGallery = auth => {
   return {
     type: REQUEST_GALLERY,
     auth: auth,

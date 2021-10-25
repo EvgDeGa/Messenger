@@ -1,9 +1,8 @@
-import {GET_GROUP} from '../constants/constants';
+import {REQUEST_GROUP} from '../constants/constants';
 
-export const getGroup = group => {
+export const getGroup = auth => {
   return {
-    type: GET_GROUP,
-    count: group.count,
-    items: group.items,
+    type: REQUEST_GROUP,
+    auth: auth,
   };
 };

@@ -2,6 +2,7 @@ import Profile from './Profile';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
+  loader: state.loader.loader,
   selfInf: state.selfInf,
   gallary: state.gallary,
   social: state.social,

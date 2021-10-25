@@ -27,6 +27,12 @@ export const styles = StyleSheet.create({
     paddingBottom: 19,
     paddingTop: 29,
   },
+  photoLoader: {
+    borderRadius: 36,
+    backgroundColor: 'grey',
+    width: 71,
+    height: 71,
+  },
   profileImage: {
     borderRadius: 36,
     width: 71,
@@ -34,6 +40,19 @@ export const styles = StyleSheet.create({
   },
   textContainer: {
     paddingLeft: 20,
+  },
+  nameLoader: {
+    marginBottom: 10,
+    height: 16,
+    width: 100,
+    backgroundColor: 'grey',
+    borderRadius: 8,
+  },
+  linkloader: {
+    height: 16,
+    width: 40,
+    backgroundColor: 'grey',
+    borderRadius: 8,
   },
   name: {
     fontFamily: Fonts.HK_GROTESK_BOLD,

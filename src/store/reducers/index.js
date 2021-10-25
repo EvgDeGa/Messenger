@@ -8,8 +8,10 @@ import {gallaryReducer} from './gallery';
 import {postPhotoReducer} from './postPhoto';
 import {commentListReducer} from './commentList';
 import {authReducer} from './auth';
+import {loaderReducer} from './loader';
 
 export const rootReducer = combineReducers({
+  loader: loaderReducer,
   auth: authReducer,
   selfInf: selfInfReducer,
   social: socialReducer,
