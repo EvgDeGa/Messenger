@@ -1,11 +1,8 @@
-import {GET_SELFINF} from '../constants/constants';
+import {REQUEST_SELFINF} from '../constants/constants';
 
-export const getSelfInf = selfInf => {
-  const payload = selfInf.response[0];
-  console.log(payload);
-
+export const getSelfInf = auth => {
   return {
-    type: GET_SELFINF,
-    payload: payload,
+    type: REQUEST_SELFINF,
+    auth: auth,
   };
 };

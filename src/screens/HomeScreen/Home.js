@@ -16,17 +16,6 @@ export const Home = props => {
   const [selectedId, setSelectedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  async function initSelfInf() {
-    const data = await Http.get(
-      'https://api.vk.com/method/users.get?user_ids=' +
-        props.auth.userId +
-        '&fields=bdate, city, country, home_town, has_photo, photo_100, domain,  site, education, universities, schools, status,  followers_count, common_count,  nickname, screen_name, is_friend, friend_status, career&access_token=' +
-        props.auth.accessToken +
-        '&v=5.131',
-    );
-    props.getSelfInf(data);
-  }
-
   const renderItem = ({item}) => {
     return (
       <Post
@@ -46,7 +35,7 @@ export const Home = props => {
           style={styles.headerMenu}
           activeOpacity={0}
           onPress={() => {
-            initSelfInf();
+            props.getSelfInf(props.auth);
             setMenu(true);
           }}>
           <Icon name={'Menu'} color={Colors.WHITE} size={22} />

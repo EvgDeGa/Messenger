@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getFriends: friends => dispatch(getFriends(friends)),
     getGroup: group => dispatch(getGroup(group)),
-    getSelfInf: selfInf => dispatch(getSelfInf(selfInf)),
+    getSelfInf: auth => dispatch(getSelfInf(auth)),
   };
 };
 

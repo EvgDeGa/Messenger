@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getSelfInf: selfInf => dispatch(getSelfInf(selfInf)),
+    getSelfInf: auth => dispatch(getSelfInf(auth)),
   };
 };
 

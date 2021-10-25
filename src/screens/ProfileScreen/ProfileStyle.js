@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     paddingTop: 30,
   },
   profileImage: {
+    borderRadius: 47,
     width: 95,
     height: 95,
   },

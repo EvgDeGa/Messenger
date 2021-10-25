@@ -1,4 +1,4 @@
-import {GET_SELFINF} from '../constants/constants';
+import {FETCH_SELFINF} from '../constants/constants';
 
 const initialState = {
   first_name: '',
@@ -36,7 +36,8 @@ const initialState = {
 
 export function selfInfReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_SELFINF:
+    case FETCH_SELFINF:
+      console.log('reducer');
       return action.payload;
     default:
       return state;

@@ -68,7 +68,7 @@ export const Menu = props => {
               <TouchableOpacity
                 onPress={() => {
                   props.onCancel();
-                  initSelfInf();
+                  props.getSelfInf(props.auth);
                   props.navigation.navigate('Profile');
                 }}>
                 <IconWithDescription
