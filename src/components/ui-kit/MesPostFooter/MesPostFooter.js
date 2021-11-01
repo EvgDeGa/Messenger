@@ -5,30 +5,27 @@ import {styles} from './MesPostFooterStyle';
 import {Colors} from '../../../constants/Colors';
 
 import Icon from '../../Icon';
-import numberWithComma from '../../../utils/Functions/numberWithComma';
-import numberOfComments from '../../../utils/Functions/numberOfComments';
 
 export const PostFooter = props => {
-  const comments = props.commentList.filter(
-    comment => comment.postId == props.postId,
-  );
+  // const comments = props.commentList.filter(
+  //   comment => comment.postId == props.postId,
+  // );
 
   return (
     <View style={styles.container}>
       <View style={styles.likeComment}>
         <View style={styles.like}>
-          <TouchableOpacity
-            onPress={() => props.likePost(props.like, props.postId)}>
+          <TouchableOpacity onPress={() => console.log('likepost')}>
             <Icon name={'Like'} color={Colors.WHITE} size={20} />
           </TouchableOpacity>
-          <Text style={styles.text}>{numberWithComma(props.like)}</Text>
+          <Text style={styles.text}>{props.post.likes.count}</Text>
         </View>
-        {comments.length ? (
+        {props.post.comments.count ? (
           <View style={styles.comment}>
             <TouchableOpacity onPress={() => props.onOpen()}>
               <Icon name={'Chat'} color={Colors.WHITE} size={20} />
             </TouchableOpacity>
-            <Text style={styles.text}>{numberOfComments(comments)}</Text>
+            <Text style={styles.text}>{props.post.comments.count}</Text>
           </View>
         ) : null}
       </View>

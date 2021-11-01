@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import {View, SafeAreaView, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  Text,
+} from 'react-native';
 
 import {styles} from './HomeStyle';
 import {Colors} from '../../constants/Colors';
 
-import {Http} from '../../store/http';
 import Icon from '../../components/Icon';
 import Post from '../../components/ui-kit/MesPost';
 import Menu from '../../components/HomeModal/Menu';
@@ -15,11 +20,17 @@ export const Home = props => {
   const [openPost, setOpenPost] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-
+  // console.log(props.posts);
   const renderItem = ({item}) => {
     return (
       <Post
-        postInformation={item}
+        post={item}
+        group={props.posts.groups.filter(
+          group => '-' + group.id == item.source_id,
+        )}
+        profile={props.posts.profiles.filter(
+          profile => '-' + profile.id == item.source_id,
+        )}
         onPress={() => {
           setSelectedItem(item);
           setOpenPost(true);
@@ -49,13 +60,18 @@ export const Home = props => {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
-        data={props.postInformation}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-        numColumns={1}
-      />
+      <TouchableOpacity onPress={() => props.getPost(props.auth)}>
+        <Text>Загрузить посты</Text>
+      </TouchableOpacity>
+      {props.loader ? null : (
+        <FlatList
+          data={props.posts.items}
+          renderItem={renderItem}
+          keyExtractor={item => item.source_id + item.date}
+          extraData={selectedId}
+          numColumns={1}
+        />
+      )}
       <Menu
         visible={menu}
         onCancel={() => setMenu(false)}
@@ -63,7 +79,13 @@ export const Home = props => {
       />
       {selectedItem ? (
         <OpenPost
-          item={selectedItem}
+          post={selectedItem}
+          group={props.posts.groups.filter(
+            group => '-' + group.id == selectedItem.source_id,
+          )}
+          profile={props.posts.profiles.filter(
+            profile => '-' + profile.id == selectedItem.source_id,
+          )}
           visible={openPost}
           onCancel={() => setOpenPost(false)}
         />

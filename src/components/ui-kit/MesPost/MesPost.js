@@ -10,9 +10,12 @@ import PostFooter from '../MesPostFooter';
 import PostHeader from '../MesPostHeader';
 
 export const Post = props => {
-  const photo = props.postPhoto.filter(
-    photo => photo.postId == props.postInformation.id,
-  );
+  let photo;
+  if (props.post.attachments) {
+    photo = props.post.attachments.filter(item => item.type == 'photo');
+  } else {
+  }
+  // console.log('sd ', props.post);
 
   const photoSwiper = () => {
     if (photo.length > 1) {
@@ -25,9 +28,17 @@ export const Post = props => {
             bottom: 0,
           }}>
           {photo.map(photoItem => {
+            const photo = photoItem.photo.sizes.filter(
+              size => size.type == 'p',
+            );
             return (
               <View key={new Date().getTime()} style={styles.imageContainer}>
-                <Image style={styles.imagePost} source={photoItem.photo} />
+                <Image
+                  style={styles.imagePost}
+                  source={{
+                    uri: photo[0].url,
+                  }}
+                />
               </View>
             );
           })}
@@ -37,7 +48,12 @@ export const Post = props => {
     if (photo.length == 1) {
       return (
         <View style={styles.imageContainer}>
-          <Image style={styles.imagePost} source={photo[0].photo} />
+          <Image
+            style={styles.imagePost}
+            source={{
+              uri: photo[0].photo.sizes[0].url,
+            }}
+          />
         </View>
       );
     }
@@ -46,8 +62,20 @@ export const Post = props => {
   return (
     <View>
       <View style={styles.container}>
-        <TouchableOpacity onPress={props.onPress}>
-          <PostHeader data={props.postInformation} />
+        <TouchableOpacity
+          onPress={() => {
+            props.addComment(
+              props.auth,
+              props.post.post_id,
+              props.post.source_id,
+            );
+            props.onPress();
+          }}>
+          <PostHeader
+            group={props.group.length ? props.group[0] : false}
+            profile={props.profile.length ? props.profile[0] : false}
+            date={props.post.date}
+          />
         </TouchableOpacity>
         <TouchableOpacity>
           <Icon name={'DotsVertical'} color={Colors.PEARL_PURPLE} size={20} />
@@ -55,21 +83,15 @@ export const Post = props => {
       </View>
 
       <View style={styles.postContent}>
-        {props.postInformation.postText ? (
-          <Text style={[styles.textPost]}>
-            {props.postInformation.postText}
-          </Text>
+        {props.post.text ? (
+          <Text style={[styles.textPost]}>{props.post.text}</Text>
         ) : null}
-        {photo && props.postInformation.postText ? (
+        {photo && props.post.text ? (
           <View style={styles.spaceBetwennContent} />
         ) : null}
-        {photo ? photoSwiper() : null}
+        {photo.length ? photoSwiper() : null}
       </View>
-      <PostFooter
-        postId={props.postInformation.id}
-        like={props.postInformation.like}
-        onOpen={props.onPress}
-      />
+      <PostFooter post={props.post} onOpen={props.onPress} />
       <View style={styles.footerLine} />
     </View>
   );

@@ -1,6 +1,6 @@
-import {LIKE_POST} from '../constants/constants';
+import {FETCH_POSTS, LIKE_POST} from '../constants/constants';
 
-export function postInformationReducer(state = initialState, action) {
+export function postReducer(state = initialState, action) {
   function requiredItem(element, index, array) {
     if (element.id == action.id) {
       return true;
@@ -21,19 +21,22 @@ export function postInformationReducer(state = initialState, action) {
       state[index].liked = !state[index].liked;
 
       return [...state];
+    case FETCH_POSTS:
+      console.log('posts');
+      return {
+        ...state,
+        items: action.payload.items,
+        groups: action.payload.groups,
+        profiles: action.payload.profiles,
+        next_from: action.payload.next_from,
+      };
     default:
       return state;
   }
 }
 
-const initialState = [
-  {
-    id: '1',
-    liked: false,
-    postHolder: 'Kat Williams',
-    holderPhoto: require('../../assets/img/postPhotoProfile/p1.png'),
-    postDate: '1h ago',
-    like: '8998',
-    postText: null,
-  },
-];
+const initialState = {
+  items: [],
+  groups: [],
+  next_from: '',
+};

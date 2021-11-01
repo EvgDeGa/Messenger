@@ -1,8 +1,10 @@
 //comment
-export const ADD_COMMENT = 'ADD_COMMENT';
-export const LIKE_COMMENT = 'LIKE_COMMENT';
+export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
 
 //post
+export const REQUEST_POSTS = 'REQUEST_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
 export const LIKE_POST = 'LIKE_POST';
 
 //auth

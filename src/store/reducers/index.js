@@ -3,7 +3,7 @@ import {selfInfReducer} from './selfInf';
 import {socialReducer} from './sosial';
 import {friendsReducer} from './friends';
 import {groupReducer} from './group';
-import {postInformationReducer} from './postInformation';
+import {postReducer} from './posts';
 import {gallaryReducer} from './gallery';
 import {postPhotoReducer} from './postPhoto';
 import {commentListReducer} from './commentList';
@@ -17,7 +17,7 @@ export const rootReducer = combineReducers({
   social: socialReducer,
   friends: friendsReducer,
   group: groupReducer,
-  postInformation: postInformationReducer,
+  posts: postReducer,
   gallary: gallaryReducer,
   postPhoto: postPhotoReducer,
   commentList: commentListReducer,

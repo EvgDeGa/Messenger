@@ -17,8 +17,9 @@ export const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   image: {
-    width: '100%',
-    resizeMode: 'stretch',
+    resizeMode: 'contain',
+    height: 180,
+    maxHeight: 180,
   },
   text: {
     fontFamily: Fonts.HK_GROTESK_MEDIUM,

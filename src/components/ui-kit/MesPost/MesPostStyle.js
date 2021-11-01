@@ -27,8 +27,9 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {},
   imagePost: {
-    width: '100%',
-    resizeMode: 'stretch',
+    resizeMode: 'contain',
+    height: 180,
+    maxHeight: 180,
   },
   footerLine: {
     marginTop: 15,

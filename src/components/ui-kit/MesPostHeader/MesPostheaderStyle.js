@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
   headerInformation: {
     flexDirection: 'row',
   },
+  image: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
   textContainer: {
     flexDirection: 'column',
     paddingLeft: 8,
