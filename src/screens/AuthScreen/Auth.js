@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import {Text, TouchableOpacity, View, Linking} from 'react-native';
 import WebView from 'react-native-webview';
 
 const auth =

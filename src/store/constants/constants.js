@@ -1,6 +1,8 @@
 //comment
 export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 export const FETCH_COMMENTS = 'FETCH_COMMENTS';
+export const SEND_COMMENT = 'FETCH_COMMENT';
+export const POST_COMMENT = 'POST_COMMENT';
 
 //post
 export const REQUEST_POSTS = 'REQUEST_POSTS';

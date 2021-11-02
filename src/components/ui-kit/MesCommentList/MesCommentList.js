@@ -6,11 +6,9 @@ import numberOfComments from '../../../utils/Functions/numberOfComments';
 import Comment from '../MesComment';
 
 export const CommentList = props => {
-  const comments = props.commentList.filter(
-    comment => comment.postId == props.postId,
-  );
-
-  const nCom = numberOfComments(comments);
+  // const comments = props.commentList.filter(
+  //  comment => comment.postId == props.postId,
+  // );
 
   function changeText(nCom) {
     const text_forms = [' комментарий', ' комментария', ' комментариев'];
@@ -31,12 +29,21 @@ export const CommentList = props => {
   return (
     <View>
       <Text style={styles.numberOfComment}>
-        {nCom}
-        {changeText(nCom)}
+        {props.commentList.count}
+        {changeText(props.commentList.count)}
       </Text>
       <View style={styles.line} />
-      {comments.map(comment => {
-        return <Comment item={comment} reply={() => onPress} />;
+      {props.commentList.items.map(comment => {
+        return (
+          <Comment
+            padding={false}
+            profile={props.commentList.profiles.filter(
+              profile => comment.from_id == profile.id,
+            )}
+            item={comment}
+            reply={() => onPress}
+          />
+        );
       })}
     </View>
   );

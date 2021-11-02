@@ -19,7 +19,7 @@ async function fetchPosts(auth) {
   const data = await Http.get(
     'https://api.vk.com/method/newsfeed.get?user_id=' +
       auth.userId +
-      '&filters=post&count=1&access_token=' +
+      '&filters=post&count=5&access_token=' +
       auth.accessToken +
       '&v=5.131',
   );

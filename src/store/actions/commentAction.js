@@ -1,4 +1,4 @@
-import {REQUEST_COMMENTS} from '../constants/constants';
+import {REQUEST_COMMENTS, SEND_COMMENT} from '../constants/constants';
 
 export const addComment = (auth, postId, ownerId) => {
   console.log('ss');
@@ -16,5 +16,16 @@ export const likeComment = (like, id, parent) => {
     like: like,
     id: id,
     parent: parent,
+  };
+};
+
+export const sendComment = (message, replyToComment, auth, postId, ownerId) => {
+  return {
+    type: SEND_COMMENT,
+    message: message,
+    replyToComment: replyToComment,
+    auth: auth,
+    postId: postId,
+    ownerId: ownerId,
   };
 };

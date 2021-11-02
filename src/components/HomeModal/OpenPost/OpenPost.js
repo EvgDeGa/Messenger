@@ -15,15 +15,18 @@ import {Colors} from '../../../constants/Colors';
 import Icon from '../../Icon';
 import BackHeader from '../../ui-kit/MesBackHeader';
 import PostHeader from '../../ui-kit/MesPostHeader';
+import CommentList from '../../ui-kit/MesCommentList';
 
 export const OpenPost = props => {
+  const [replyToComment, setReplyToComment] = useState(0);
   const [text, setText] = useState('');
   let photo;
   if (props.post.attachments) {
     photo = props.post.attachments.filter(item => item.type == 'photo');
   } else {
   }
-  // console.log(props.post);
+  // console.log(props.auth);
+  // console.log('ff', props.post, 'dd', props.post);
   return (
     <Modal animationType="fade" transparent visible={props.visible}>
       <View style={styles.centralView}>
@@ -65,8 +68,7 @@ export const OpenPost = props => {
               <Icon name={'Bookmark'} size={18} color={Colors.WHITE} />
             </TouchableOpacity>
           </View>
-
-          {/* <CommentList postId={props.item.id} /> */}
+          <CommentList />
         </ScrollView>
         <View style={styles.inputContainer}>
           <View style={styles.commentInput}>
@@ -78,7 +80,16 @@ export const OpenPost = props => {
               underlineColorAndroid="rgba(0,0,0,0)"
             />
           </View>
-          <TouchableOpacity onPress={() => console.log('addcomment')}>
+          <TouchableOpacity
+            onPress={() =>
+              props.sendComment(
+                text,
+                replyToComment,
+                props.auth,
+                props.post.post_id,
+                props.post.source_id,
+              )
+            }>
             <Icon name={'PaperAirplane'} color={Colors.WHITE} size={22} />
           </TouchableOpacity>
         </View>

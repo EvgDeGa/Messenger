@@ -18,6 +18,8 @@ export const styles = StyleSheet.create({
     marginTop: 2,
   },
   iamge: {
-    resizeMode: 'cover',
+    resizeMode: 'contain',
+    height: 54,
+    maxHeight: 54,
   },
 });

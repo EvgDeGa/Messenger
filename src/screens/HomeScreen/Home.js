@@ -29,7 +29,7 @@ export const Home = props => {
           group => '-' + group.id == item.source_id,
         )}
         profile={props.posts.profiles.filter(
-          profile => '-' + profile.id == item.source_id,
+          profile => profile.id == item.source_id,
         )}
         onPress={() => {
           setSelectedItem(item);
