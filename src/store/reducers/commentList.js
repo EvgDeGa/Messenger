@@ -7,10 +7,10 @@ import {
 export function commentListReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_COMMENTS:
-      console.log('com  ', action.payload);
+      // console.log('com  ', action.payload);
       return action.payload;
     case POST_COMMENT:
-      console.log('post', action.payload);
+      // console.log('post', action.payload);
       return {...state};
     default:
       return state;

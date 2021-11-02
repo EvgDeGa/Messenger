@@ -23,6 +23,6 @@ async function fetchGallery(auth) {
       auth.accessToken +
       '&v=5.131',
   );
-  console.log(data);
+  // console.log(data);
   return await data.response;
 }

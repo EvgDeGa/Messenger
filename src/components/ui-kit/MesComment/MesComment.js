@@ -27,11 +27,23 @@ export const Comment = props => {
 
   const returnItem = () => {
     if (item.thread.count > 0) {
-      console.log('1');
+      // console.log('1');
       return (
         <View>
           {item.thread.items.map(comment => {
-            return <Comment {...props} item={comment} padding={true} />;
+            // console.log('qqqwert', props.commentList.profiles);
+            // console.log('1qqqwert', comment.from_id);
+
+            return (
+              <Comment
+                {...props}
+                profile={props.commentList.profiles.filter(
+                  profile => comment.from_id == profile.id,
+                )}
+                item={comment}
+                padding={true}
+              />
+            );
           })}
         </View>
       );
@@ -59,7 +71,10 @@ export const Comment = props => {
           <CommentContent text={item.text} attachments={returnAtt()} />
           <View style={styles.buttonDate}>
             <Text style={styles.dateText}>{item.date}</Text>
-            <TouchableOpacity onPress={() => setSelectedId(item.id)}>
+            <TouchableOpacity
+              onPress={() =>
+                props.setReplyToComment(item.id, props.profile[0].first_name)
+              }>
               <Text style={styles.replyButton}>Ответить</Text>
             </TouchableOpacity>
           </View>

@@ -47,7 +47,10 @@ export const styles = StyleSheet.create({
 
   inputContainer: {
     paddingTop: 4,
-    paddingBottom: 27,
+    paddingBottom: 25,
+    flexDirection: 'column',
+  },
+  input: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -60,9 +63,16 @@ export const styles = StyleSheet.create({
     borderRadius: 28,
     backgroundColor: Colors.SAPPHIRE_BLUE,
   },
-  input: {
+  inputText: {
     alignItems: 'center',
     marginLeft: 8,
+    color: Colors.WHITE,
+  },
+  replyText: {
+    marginTop: 2,
+    marginLeft: 8,
+    fontFamily: Fonts.HK_GROTESK_REGULAR,
+    fontSize: 12,
     color: Colors.WHITE,
   },
 });

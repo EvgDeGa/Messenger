@@ -36,6 +36,8 @@ export const CommentList = props => {
       {props.commentList.items.map(comment => {
         return (
           <Comment
+            commentList={props.commentList}
+            setReplyToComment={(id, name) => props.setReplyToComment(id, name)}
             padding={false}
             profile={props.commentList.profiles.filter(
               profile => comment.from_id == profile.id,

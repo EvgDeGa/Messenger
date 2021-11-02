@@ -91,7 +91,17 @@ export const Post = props => {
         ) : null}
         {photo.length ? photoSwiper() : null}
       </View>
-      <PostFooter post={props.post} onOpen={props.onPress} />
+      <PostFooter
+        post={props.post}
+        onOpen={() => {
+          props.onPress();
+          props.addComment(
+            props.auth,
+            props.post.post_id,
+            props.post.source_id,
+          );
+        }}
+      />
       <View style={styles.footerLine} />
     </View>
   );
