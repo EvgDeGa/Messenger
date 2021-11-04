@@ -1,5 +1,9 @@
 import {put, call} from 'redux-saga/effects';
-import {FETCH_COMMENTS, POST_COMMENT} from '../constants/constants';
+import {
+  FETCH_COMMENTS,
+  POST_COMMENT,
+  LIKED_COMMENT,
+} from '../constants/constants';
 import {Http} from '../http';
 import {showLoader, hideLoader} from '../actions/loaderAction';
 
@@ -120,5 +124,70 @@ async function psotComments(message, replyToComment, auth, postId, ownerId) {
       '&v=5.131',
   );
   // console.log(data);
+  return await data.response;
+}
+
+export function* commentLikeWorker(action) {
+  try {
+    // yield put(showLoader());
+    if (action.userLikes) {
+      const payload = yield call(
+        dislikeComment,
+        action.auth,
+        action.ownerId,
+        action.itemId,
+      );
+      yield put({
+        type: LIKED_COMMENT,
+        payload: payload,
+        userLikes: action.userLikes,
+        ownerId: action.ownerId,
+        itemId: action.itemId,
+      });
+    } else {
+      const payload = yield call(
+        likeComment,
+        action.auth,
+        action.ownerId,
+        action.itemId,
+      );
+      yield put({
+        type: LIKED_COMMENT,
+        payload: payload,
+        userLikes: action.userLikes,
+        ownerId: action.ownerId,
+        itemId: action.itemId,
+      });
+    }
+    // yield put(hideLoader());
+  } catch (e) {
+    console.log('commentLikeWorker-error', e);
+    // yield put(hideLoader());
+  }
+}
+
+async function likeComment(auth, ownerId, itemId) {
+  const data = await Http.post(
+    'https://api.vk.com/method/likes.add?type=comment&owner_id=' +
+      ownerId +
+      '&item_id=' +
+      itemId +
+      '&filters=post&count=5&access_token=' +
+      auth.accessToken +
+      '&v=5.131',
+  );
+  return await data.response;
+}
+
+async function dislikeComment(auth, ownerId, itemId) {
+  const data = await Http.post(
+    'https://api.vk.com/method/likes.delete?type=comment&owner_id=' +
+      ownerId +
+      '&item_id=' +
+      itemId +
+      '&filters=post&count=5&access_token=' +
+      auth.accessToken +
+      '&v=5.131',
+  );
   return await data.response;
 }

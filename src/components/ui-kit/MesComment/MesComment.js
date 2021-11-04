@@ -80,7 +80,15 @@ export const Comment = props => {
           </View>
         </View>
         <View style={styles.likeContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              props.likeComment(
+                props.auth,
+                props.item.likes.user_likes,
+                props.item.from_id,
+                props.item.id,
+              )
+            }>
             <Icon name={'Like'} size={16} color={Colors.WHITE} />
           </TouchableOpacity>
           <Text style={styles.likeText}>{item.likes.count}</Text>

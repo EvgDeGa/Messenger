@@ -74,7 +74,15 @@ export const OpenPost = props => {
           </View>
           <View style={styles.interactionBlock}>
             <View style={styles.like}>
-              <TouchableOpacity onPress={() => console.log('likepost')}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.likePost(
+                    props.auth,
+                    props.post.likes.user_likes,
+                    props.post.source_id,
+                    props.post.post_id,
+                  )
+                }>
                 <Icon name={'Like'} color={Colors.WHITE} size={20} />
               </TouchableOpacity>
               <Text style={styles.likeText}>{props.post.likes.count}</Text>

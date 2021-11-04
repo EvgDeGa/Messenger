@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {likeComment} from '../../../store/actions/commentAction';
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   commentList: state.commentList,
   postInformation: state.postInformation,
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    likeComment: (like, id, parent) => dispatch(likeComment(like, id, parent)),
+    likeComment: (auth, userLikes, ownerId, itemId) =>
+      dispatch(likeComment(auth, userLikes, ownerId, itemId)),
   };
 };
 

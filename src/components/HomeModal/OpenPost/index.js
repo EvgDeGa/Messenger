@@ -11,9 +11,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
+    likePost: (auth, userLikes, ownerId, itemId) =>
+      dispatch(likePost(auth, userLikes, ownerId, itemId)),
     addComment: (auth, postId, ownerId) =>
       dispatch(addComment(auth, postId, ownerId)),
-    likePost: (like, id) => dispatch(likePost(like, id)),
     sendComment: (message, replyToComment, auth, postId, ownerId) =>
       dispatch(sendComment(message, replyToComment, auth, postId, ownerId)),
   };

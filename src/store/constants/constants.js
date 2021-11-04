@@ -3,11 +3,14 @@ export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 export const FETCH_COMMENTS = 'FETCH_COMMENTS';
 export const SEND_COMMENT = 'FETCH_COMMENT';
 export const POST_COMMENT = 'POST_COMMENT';
+export const LIKE_COMMENT = 'LIKE_COMMENT';
+export const LIKED_COMMENT = 'LIKED_COMMENT';
 
 //post
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const LIKE_POST = 'LIKE_POST';
+export const LIKED_POST = 'LIKED_POST';
 
 //auth
 export const AUTH = 'AUTH';

@@ -1,8 +1,11 @@
-import {FETCH_POSTS, LIKE_POST} from '../constants/constants';
+import {FETCH_POSTS, LIKED_POST} from '../constants/constants';
 
 export function postReducer(state = initialState, action) {
-  function requiredItem(element, index, array) {
-    if (element.id == action.id) {
+  function findItem(element, index, array) {
+    if (
+      (element.source_id == action.ownerId) &
+      (element.post_id == action.itemId)
+    ) {
       return true;
     } else {
       return false;
@@ -10,17 +13,16 @@ export function postReducer(state = initialState, action) {
   }
 
   switch (action.type) {
-    case LIKE_POST:
-      let index = state.findIndex(requiredItem);
-
-      if (state[index].liked) {
-        state[index].like = String(Number(action.like) - 1);
+    case LIKED_POST:
+      let index = state.items.findIndex(findItem);
+      if (action.userLikes) {
+        state.items[index].likes.count = state.items[index].likes.count - 1;
+        state.items[index].likes.user_likes = 0;
       } else {
-        state[index].like = String(Number(action.like) + 1);
+        state.items[index].likes.count = state.items[index].likes.count + 1;
+        state.items[index].likes.user_likes = 1;
       }
-      state[index].liked = !state[index].liked;
-
-      return [...state];
+      return {...state};
     case FETCH_POSTS:
       console.log('posts');
       return {
