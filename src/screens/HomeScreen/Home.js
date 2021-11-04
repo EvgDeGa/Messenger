@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   SafeAreaView,
@@ -20,7 +20,14 @@ export const Home = props => {
   const [openPost, setOpenPost] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-  // console.log(props.posts);
+
+  useEffect(() => {
+    if (!props.posts.items.length) {
+      props.getPost(props.auth);
+      // console.log('hi');
+    }
+  });
+
   const renderItem = ({item}) => {
     return (
       <Post
@@ -60,9 +67,11 @@ export const Home = props => {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity onPress={() => props.getPost(props.auth)}>
-        <Text>Загрузить посты</Text>
-      </TouchableOpacity>
+      {props.loader ? (
+        <View>
+          <Text style={styles.loading}>Загрузка...</Text>
+        </View>
+      ) : null}
       {props.loader ? null : (
         <FlatList
           data={props.posts.items}

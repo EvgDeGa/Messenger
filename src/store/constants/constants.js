@@ -5,27 +5,33 @@ export const SEND_COMMENT = 'FETCH_COMMENT';
 export const POST_COMMENT = 'POST_COMMENT';
 export const LIKE_COMMENT = 'LIKE_COMMENT';
 export const LIKED_COMMENT = 'LIKED_COMMENT';
+export const FETCH_COMMENT_FAILURE = 'FETCH_COMMENT_FAILURE';
 
 //post
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const LIKE_POST = 'LIKE_POST';
 export const LIKED_POST = 'LIKED_POST';
+export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 //auth
 export const AUTH = 'AUTH';
+export const AUTH_FAILURE = 'AUTH_FAILURE';
 
 //friends
 export const REQUEST_FRIENDS = 'REQUEST_FRIENDS';
 export const FETCH_FRIENDS = 'FETCH_FRIENDS';
+export const FETCH_FRIENDS_FAILURE = 'FETCH_FRIENDS_FAILURE';
 
 //group
 export const REQUEST_GROUP = 'REQUEST_GROUP';
 export const FETCH_GROUP = 'FETCH_GROUP';
+export const FETCH_GROUP_FAILURE = 'FETCH_GROUP_FAILURE';
 
 //selfInf
 export const REQUEST_SELFINF = 'REQUEST_SELFINF';
 export const FETCH_SELFINF = 'FETCH_SELFINF';
+export const FETCH_SELFINF_FAILURE = 'FETCH_SELFINF_FAILURE';
 
 //loader
 export const SHOW_LOADER = 'SHOW_LOADER';
@@ -37,3 +43,4 @@ export const FETCH_GALLERY = 'FETCH_GALLERY';
 
 //gallery
 export const REQUEST_SEARCH = 'REQUEST_GALLERY';
+export const FETCH_GALLERY_FAILURE = 'FETCH_GALLERY_FAILURE';

@@ -89,7 +89,7 @@ export const Post = props => {
         {photo && props.post.text ? (
           <View style={styles.spaceBetwennContent} />
         ) : null}
-        {photo.length ? photoSwiper() : null}
+        {photo && photo.length ? photoSwiper() : null}
       </View>
       <PostFooter
         post={props.post}

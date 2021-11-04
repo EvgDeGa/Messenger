@@ -28,7 +28,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Chat'}
-                text={selfInf.status}
+                text={selfInf.status ? selfInf.status : 'Нет статуса'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -37,7 +37,11 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Cake'}
-                text={'День рождения: ' + selfInf.bdate}
+                text={
+                  selfInf.bdate
+                    ? 'День рождения: ' + selfInf.bdate
+                    : 'День рождения: Не указано'
+                }
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -46,7 +50,11 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Location'}
-                text={'Город: ' + selfInf.home_town}
+                text={
+                  selfInf.home_town
+                    ? 'Город: ' + selfInf.home_town
+                    : 'Город: Не указано'
+                }
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -55,7 +63,11 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Case'}
-                text={selfInf.universities[0]}
+                text={
+                  selfInf.universities[0]
+                    ? selfInf.universities[0]
+                    : 'Не указано'
+                }
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -70,7 +82,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'ArrowTopRigth'}
-                text={social.arrow}
+                text={selfInf.site ? selfInf.site : 'Не указано'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -79,7 +91,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Twitter'}
-                text={social.twitter}
+                text={selfInf.twitter ? selfInf.twitter : 'Не указано'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -88,7 +100,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Instagram'}
-                text={selfInf.instagram}
+                text={selfInf.instagram ? selfInf.instagram : 'Не указано'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -97,7 +109,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Facebook'}
-                text={social.facebook}
+                text={selfInf.facebook ? selfInf.facebook : 'Не указано'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />
@@ -106,7 +118,7 @@ export const MoreDetails = ({selfInf, social, visible, onCancel}) => {
               <IconWithDescription
                 iconColor={Colors.WHITE}
                 icon={'Telegram'}
-                text={social.telegram}
+                text={selfInf.site ? selfInf.site : 'Не указано'}
                 textColor={Colors.PERIWINKLE_KRAIOLA}
                 textSize={14}
               />

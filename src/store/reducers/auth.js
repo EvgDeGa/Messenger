@@ -1,4 +1,4 @@
-import {AUTH} from '../constants/constants';
+import {AUTH, AUTH_FAILURE} from '../constants/constants';
 
 export function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -9,6 +9,11 @@ export function authReducer(state = initialState, action) {
         userId: action.userId,
         isAuth: true,
       };
+    case AUTH_FAILURE:
+      return {
+        ...state,
+        error: true,
+      };
     default:
       return state;
   }
@@ -18,4 +23,5 @@ const initialState = {
   accessToken: null,
   userId: null,
   isAuth: false,
+  error: false,
 };

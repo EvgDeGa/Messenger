@@ -1,5 +1,6 @@
 import {Colors} from '../../constants/Colors';
 import {StyleSheet} from 'react-native';
+import {Fonts} from '../../constants/Fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,5 +18,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: 58,
+  },
+  loading: {
+    fontFamily: Fonts.HK_GROTESK_MEDIUM,
+    fontSize: 14,
+    color: Colors.WHITE,
+    alignItems: 'center',
   },
 });

@@ -15,7 +15,7 @@ import {styles} from './MenuStyle';
 export const Menu = props => {
   return (
     <Modal animationType="fade" transparent visible={props.visible}>
-      <View style={styles.centralView} onPress={props.onCancel}>
+      <View style={styles.centralView}>
         <View style={styles.container}>
           <View style={styles.personalInformation}>
             {props.loader ? (
@@ -109,7 +109,10 @@ export const Menu = props => {
             </View>
           </View>
         </View>
-        <Pressable style={styles.press} propsonPress={props.onCancel} />
+        <TouchableOpacity
+          style={styles.press}
+          onPress={() => props.onCancel()}
+        />
       </View>
     </Modal>
   );

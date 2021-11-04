@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Image} from 'react-native';
 
 import {styles} from './MesPostheaderStyle';
+import {convertUnixTimeForPost} from '../../Functions/convertUnixTime';
 
 export const PostHeader = props => {
   var photo;
@@ -22,7 +23,9 @@ export const PostHeader = props => {
       />
       <View style={styles.textContainer}>
         <Text style={styles.nameText}>{props.group.name}</Text>
-        <Text style={styles.dateText}>{props.date}</Text>
+        <Text style={styles.dateText}>
+          {convertUnixTimeForPost(props.date)}
+        </Text>
       </View>
     </View>
   );

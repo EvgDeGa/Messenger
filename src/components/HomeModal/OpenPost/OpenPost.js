@@ -27,9 +27,6 @@ export const OpenPost = props => {
   }
 
   useEffect(() => {
-    // console.log(replyToComment[1]);
-    // console.log(text);
-
     if ((replyToComment[1] != '') & (text == '')) {
       setText(replyToComment[1] + ', ');
     }
@@ -91,12 +88,13 @@ export const OpenPost = props => {
               <Icon name={'Bookmark'} size={18} color={Colors.WHITE} />
             </TouchableOpacity>
           </View>
-          <CommentList
-            setReplyToComment={(id, name) => {
-              setReplyToComment([id, name]);
-              // console.log(replyToComment[1]);
-            }}
-          />
+          {!props.loader ? (
+            <CommentList
+              setReplyToComment={(id, name) => {
+                setReplyToComment([id, name]);
+              }}
+            />
+          ) : null}
         </ScrollView>
         <View style={styles.inputContainer}>
           <View style={styles.input}>

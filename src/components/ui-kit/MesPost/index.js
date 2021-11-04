@@ -5,7 +5,6 @@ import {addComment} from '../../../store/actions/commentAction';
 const mapStateToProps = state => ({
   auth: state.auth,
   selfInf: state.selfInf,
-  postPhoto: state.postPhoto,
 });
 
 const mapDispatchToProps = dispatch => {

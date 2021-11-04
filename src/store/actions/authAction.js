@@ -1,4 +1,4 @@
-import {AUTH} from '../constants/constants';
+import {AUTH, AUTH_FAILURE} from '../constants/constants';
 
 export const auth = url => {
   console.log(url);
@@ -8,10 +8,15 @@ export const auth = url => {
   const userId = url.substring(idIndex[0], idIndex[1]);
   console.log(accessToken);
   console.log(userId);
-
-  return {
-    type: AUTH,
-    accessToken: accessToken,
-    userId: userId,
-  };
+  if (url.includes('error')) {
+    return {
+      type: AUTH_FAILURE,
+    };
+  } else {
+    return {
+      type: AUTH,
+      accessToken: accessToken,
+      userId: userId,
+    };
+  }
 };

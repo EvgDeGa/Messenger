@@ -1,7 +1,8 @@
-import {FETCH_FRIENDS} from '../constants/constants';
+import {FETCH_FRIENDS, FETCH_FRIENDS_FAILURE} from '../constants/constants';
 const initialState = {
   count: 0,
   items: [],
+  error: false,
 };
 
 export function friendsReducer(state = initialState, action) {
@@ -12,6 +13,11 @@ export function friendsReducer(state = initialState, action) {
         ...state,
         count: action.payload.count,
         items: action.payload.items,
+      };
+    case FETCH_FRIENDS_FAILURE:
+      return {
+        ...state,
+        error: action.error,
       };
     default:
       return state;

@@ -6,7 +6,7 @@ import {likePost} from '../../../store/actions/postAction';
 const mapStateToProps = state => ({
   auth: state.auth,
   selfInf: state.selfInf,
-  postInformation: state.postInformation,
+  loader: state.loader.loader,
 });
 
 const mapDispatchToProps = dispatch => {

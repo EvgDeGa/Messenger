@@ -5,7 +5,6 @@ const mapStateToProps = state => ({
   loader: state.loader.loader,
   selfInf: state.selfInf,
   gallary: state.gallary,
-  social: state.social,
 });
 
 const mapDispatchToProps = dispatch => ({});

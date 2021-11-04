@@ -14,7 +14,6 @@ import {styles} from './ProfileStyle';
 const Profile = props => {
   const [moreDetails, setMoreDetails] = useState(false);
   const [moreAction, setMoreAction] = useState(false);
-
   return (
     <SafeAreaView style={styles.profileContainer}>
       <View style={styles.profileInformation}>
@@ -43,10 +42,18 @@ const Profile = props => {
               </Text>
               <Text style={styles.link}>{props.selfInf.domain}</Text>
               <Text style={styles.countryCity}>
-                {props.selfInf.country.title}, {props.selfInf.home_town}
+                {props.selfInf.country.title
+                  ? props.selfInf.country.title
+                  : null}
+                {props.selfInf.home_town
+                  ? ', ' + props.selfInf.home_town
+                  : null}
               </Text>
               <Text style={styles.workpalce}>
-                Место работы: {props.selfInf.career[0]}
+                Место работы:
+                {props.selfInf.career[0]
+                  ? ' ' + props.selfInf.career[0]
+                  : ' не указано'}
               </Text>
             </View>
           )}
@@ -75,7 +82,6 @@ const Profile = props => {
       <View style={styles.gallery}>
         <View style={styles.gallery_Text}>
           <Text style={styles.photoText}>Фотографии</Text>
-          <Text style={styles.photoNumber}>{props.gallary.length}</Text>
         </View>
         <ProfilePhotoScroll data={props.gallary.items} />
       </View>

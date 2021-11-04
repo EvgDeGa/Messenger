@@ -1,4 +1,19 @@
-import {FETCH_SELFINF} from '../constants/constants';
+import {FETCH_SELFINF, FETCH_SELFINF_FAILURE} from '../constants/constants';
+
+export function selfInfReducer(state = initialState, action) {
+  switch (action.type) {
+    case FETCH_SELFINF:
+      console.log('reducer');
+      return action.payload;
+    case FETCH_SELFINF_FAILURE:
+      return {
+        ...state,
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+}
 
 const initialState = {
   first_name: '',
@@ -32,14 +47,5 @@ const initialState = {
   home_town: '',
   universities: [],
   schools: [],
+  error: false,
 };
-
-export function selfInfReducer(state = initialState, action) {
-  switch (action.type) {
-    case FETCH_SELFINF:
-      console.log('reducer');
-      return action.payload;
-    default:
-      return state;
-  }
-}

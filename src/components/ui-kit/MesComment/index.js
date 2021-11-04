@@ -5,7 +5,6 @@ import {likeComment} from '../../../store/actions/commentAction';
 const mapStateToProps = state => ({
   auth: state.auth,
   commentList: state.commentList,
-  postInformation: state.postInformation,
 });
 
 const mapDispatchToProps = dispatch => {

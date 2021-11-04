@@ -1,8 +1,8 @@
 import {
-  ADD_COMMENT,
   FETCH_COMMENTS,
   LIKED_COMMENT,
   POST_COMMENT,
+  FETCH_COMMENT_FAILURE,
 } from '../constants/constants';
 
 export function commentListReducer(state = initialState, action) {
@@ -26,11 +26,11 @@ export function commentListReducer(state = initialState, action) {
       }
       return {...state};
     case FETCH_COMMENTS:
-      // console.log('com  ', action.payload);
       return action.payload;
     case POST_COMMENT:
-      // console.log('post', action.payload);
       return {...state};
+    case FETCH_COMMENT_FAILURE:
+      return {...state, error: action.error};
     default:
       return state;
   }
@@ -39,4 +39,5 @@ export function commentListReducer(state = initialState, action) {
 const initialState = {
   count: 0,
   items: [],
+  error: false,
 };

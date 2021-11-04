@@ -6,16 +6,13 @@ import {Colors} from '../../../constants/Colors';
 
 import Icon from '../../Icon';
 import CommentContent from '../MesCommentContent';
+import {convertUnixTime} from '../../Functions/convertUnixTime';
 
 export const Comment = props => {
   const item = props.item;
-  const [selectedId, setSelectedId] = useState(null);
   const subCommentPadding = props.padding ? 53 : 0;
   const imageSize = props.padding ? 30 : 43;
   const imageRadius = props.padding ? 15 : 22;
-
-  //
-  // console.log('item.attachments', item.thread);
 
   const returnAtt = () => {
     if (item.attachments) {
@@ -27,13 +24,9 @@ export const Comment = props => {
 
   const returnItem = () => {
     if (item.thread.count > 0) {
-      // console.log('1');
       return (
         <View>
           {item.thread.items.map(comment => {
-            // console.log('qqqwert', props.commentList.profiles);
-            // console.log('1qqqwert', comment.from_id);
-
             return (
               <Comment
                 {...props}
@@ -52,25 +45,29 @@ export const Comment = props => {
     }
   };
   return (
-    <View style={[styles.commentContainer, {paddingLeft: subCommentPadding}]}>
+    <View
+      key={props.item.id.toString()}
+      style={[styles.commentContainer, {paddingLeft: subCommentPadding}]}>
       <View style={styles.commentItem}>
-        <View style={styles.image}>
-          <Image
-            style={{
-              width: imageSize,
-              height: imageSize,
-              borderRadius: imageRadius,
-            }}
-            source={{uri: props.profile[0].photo_50}}
-          />
-        </View>
+        {props.profile[0] ? (
+          <View style={styles.image}>
+            <Image
+              style={{
+                width: imageSize,
+                height: imageSize,
+                borderRadius: imageRadius,
+              }}
+              source={{uri: props.profile[0].photo_50}}
+            />
+          </View>
+        ) : null}
         <View style={styles.commentBody}>
           <Text style={styles.nameText}>
             {props.profile[0].first_name} {props.profile[0].last_name}
           </Text>
           <CommentContent text={item.text} attachments={returnAtt()} />
           <View style={styles.buttonDate}>
-            <Text style={styles.dateText}>{item.date}</Text>
+            <Text style={styles.dateText}>{convertUnixTime(item.date)}</Text>
             <TouchableOpacity
               onPress={() =>
                 props.setReplyToComment(item.id, props.profile[0].first_name)

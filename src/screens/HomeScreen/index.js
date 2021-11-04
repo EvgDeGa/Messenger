@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   loader: state.loader.loader,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getSelfInf: auth => dispatch(getSelfInf(auth)),
     getPost: auth => dispatch(getPost(auth)),

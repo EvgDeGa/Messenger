@@ -1,4 +1,8 @@
-import {FETCH_POSTS, LIKED_POST} from '../constants/constants';
+import {
+  FETCH_POSTS,
+  FETCH_POSTS_FAILURE,
+  LIKED_POST,
+} from '../constants/constants';
 
 export function postReducer(state = initialState, action) {
   function findItem(element, index, array) {
@@ -32,6 +36,11 @@ export function postReducer(state = initialState, action) {
         profiles: action.payload.profiles,
         next_from: action.payload.next_from,
       };
+    case FETCH_POSTS_FAILURE:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }
@@ -41,4 +50,5 @@ const initialState = {
   items: [],
   groups: [],
   next_from: '',
+  error: false,
 };
